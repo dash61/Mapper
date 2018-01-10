@@ -1,8 +1,8 @@
-# autumn-pwa
+# Mapprj3
 
-A mock progressive web app, using React, Redux, Preact and mini.css
+A PWA using React, Redux and Leaflet.
 
-Read all about it [here](https://medium.com/@chalarangelo/in-a-previous-article-i-tried-to-write-an-in-depth-guide-to-getting-started-with-progressive-web-2f6bc0775951).
+(add more details and credits)
 
 Also credit goes to the [KrateLabs demo](https://github.com/KrateLabs/KrateLabs-App).
 
