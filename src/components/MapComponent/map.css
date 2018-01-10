@@ -1,0 +1,83 @@
+.leaflet-container {
+    height: 600px;
+    width: 100%;
+}
+
+#map-component {
+    width: 100%;
+}
+
+.leaflet-touch .leaflet-bar a {
+    width: 10px;
+    height: 10px;
+    line-height: 9px;
+    padding: 0.6rem, 0.6rem;
+}
+
+.leaflet-safari .leaflet-bar a {
+    width: 10px;
+    height: 10px;
+    line-height: 9px;
+    padding: 0.6rem, 0.6rem;
+}
+
+.leaflet-bar a:hover {
+    background-color: #e4e4e4;
+}
+
+.leaflet-control-zoom .leaflet-control-zoom-in, .leaflet-control-zoom .leaflet-control-zoom-out {
+    font-size: 22px;
+    margin: 0.35rem;
+    text-indent: -1.2px;
+/*    width: 10px;
+    height: 10px;
+    line-height: 9px;
+    padding: 0.6rem, 0.6rem;
+*/}
+
+.leaflet-container .leaflet-control-attribution a {
+    font-size: 0.7rem;
+}
+
+.esri-dynamic-attribution {
+    font-size: 0.7rem;    
+}
+
+/*.leaflet-control-layers-base input[checked] + span {
+    background-color: yellow;
+}*/
+
+.leaflet-control-layers-base span:hover {
+    background-color: #A5DF00;
+}
+
+.leafLegend {
+    font-size: 12px;
+    border: 2px solid rgba(0,0,0,0.2);
+    background-color: white;
+    border-radius: 4px;
+}
+
+.legend-title, .min-value, .max-value {
+    font-size: 13px;
+    text-align: center;
+}
+
+.legend .leafLegend {
+    margin-right: 8px;
+}
+
+.legend {
+    width: 58px;
+}
+
+.legend i {
+    width: 58px;
+    height: 15px;
+    float: right;
+    margin-right: 10px;
+}
+
+.legend-title {
+    border-bottom: 2px solid rgba(0,0,0,0.2);
+}

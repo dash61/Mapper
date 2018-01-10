@@ -1,0 +1,837 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"public",
+				"publicUrl"
+			],
+			[
+				"rel",
+				"relativePath"
+			],
+			[
+				"hr",
+				"hr_style"
+			],
+			[
+				"cont",
+				"controlLayers"
+			],
+			[
+				"padd",
+				"padding-top"
+			],
+			[
+				"box",
+				"box-shadow"
+			],
+			[
+				"te",
+				"text-decoration"
+			],
+			[
+				"border",
+				"border-radius"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"mar",
+				"margin-right"
+			],
+			[
+				"marg",
+				"margin-left"
+			],
+			[
+				"margin",
+				"margin-left"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"m",
+				"margin-bottom"
+			],
+			[
+				"dis",
+				"disqus"
+			],
+			[
+				"font",
+				"font-family"
+			],
+			[
+				"ov",
+				"overflow-x"
+			],
+			[
+				"fig",
+				"figcaption\tTag"
+			],
+			[
+				"padding-",
+				"padding-left"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"bott",
+				"margin-bottom"
+			],
+			[
+				"st",
+				"strong\tTag"
+			],
+			[
+				"max",
+				"max_length"
+			],
+			[
+				"bo",
+				"border-radius"
+			],
+			[
+				"out",
+				"outline-offset"
+			],
+			[
+				"it",
+				"items"
+			],
+			[
+				"is",
+				"is_valid"
+			],
+			[
+				"i",
+				"is_valid"
+			],
+			[
+				"get",
+				"get_context_data"
+			],
+			[
+				"form",
+				"form_valid"
+			],
+			[
+				"as",
+				"as_view\tfunction"
+			],
+			[
+				"Htt",
+				"HttpResponse\tclass"
+			],
+			[
+				"backg",
+				"background-repeat"
+			],
+			[
+				"Em",
+				"EmailInput\tclass"
+			],
+			[
+				"Con",
+				"ContactForm\tclass"
+			],
+			[
+				"foo",
+				"footer_H"
+			],
+			[
+				"main",
+				"mainC_H"
+			],
+			[
+				"top",
+				"top_H"
+			],
+			[
+				"h",
+				"height2"
+			],
+			[
+				"he",
+				"height3"
+			],
+			[
+				"flex",
+				"flex-direction"
+			],
+			[
+				"bor",
+				"border-style"
+			],
+			[
+				"border-s",
+				"border-style"
+			],
+			[
+				"tx",
+				"text-align"
+			],
+			[
+				"al",
+				"align-items"
+			],
+			[
+				"prev",
+				"prevhRef"
+			],
+			[
+				"add",
+				"addClass"
+			],
+			[
+				"remove",
+				"removeClass"
+			],
+			[
+				"hre",
+				"hrefStoredStr"
+			],
+			[
+				"href",
+				"hrefStoredStr"
+			],
+			[
+				"c",
+				"class"
+			],
+			[
+				"at",
+				"getAttribute"
+			],
+			[
+				"obj",
+				"objStored"
+			],
+			[
+				"new",
+				"newListItemSelected"
+			],
+			[
+				"my",
+				"myparentjq"
+			],
+			[
+				"sel",
+				"selectedButton"
+			],
+			[
+				"loc",
+				"localStorage"
+			],
+			[
+				"pre",
+				"previouslySelectedButton"
+			],
+			[
+				"min",
+				"min-height"
+			],
+			[
+				"pa",
+				"padding-left"
+			],
+			[
+				"border-lef",
+				"border-left-color"
+			],
+			[
+				"border-l",
+				"border-left-width"
+			],
+			[
+				"fon",
+				"font-style"
+			],
+			[
+				"inl",
+				"inline-block"
+			],
+			[
+				"activat",
+				"activate_user_view"
+			],
+			[
+				"acti",
+				"activation_key"
+			],
+			[
+				"reg",
+				"registration"
+			],
+			[
+				"Regi",
+				"RegisterForm"
+			],
+			[
+				"items",
+				"items_exist"
+			],
+			[
+				"W",
+				"WriterPrjAllBooksQuerySet"
+			],
+			[
+				"na",
+				"name__icontains"
+			],
+			[
+				"title",
+				"title__icontains"
+			],
+			[
+				"auth",
+				"auth_views"
+			],
+			[
+				"l",
+				"login_url"
+			],
+			[
+				"con",
+				"contrib"
+			],
+			[
+				"login",
+				"login_required"
+			],
+			[
+				"vali",
+				"validate_email"
+			],
+			[
+				"valid",
+				"validators"
+			],
+			[
+				"template",
+				"template_name"
+			],
+			[
+				"un",
+				"unique_slug_generator"
+			],
+			[
+				"B",
+				"BooksDetailView"
+			],
+			[
+				"Search",
+				"SearchBooksListView"
+			],
+			[
+				"A",
+				"AboutView"
+			],
+			[
+				"Hom",
+				"HomeView"
+			],
+			[
+				"dj",
+				"django"
+			],
+			[
+				"Si",
+				"SignUp"
+			],
+			[
+				"Sign",
+				"SignUpForm"
+			],
+			[
+				"fa-sta",
+				"fa-stack-1x"
+			],
+			[
+				"fa-s",
+				"fa-stack-2x"
+			],
+			[
+				"bord",
+				"border-color"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"nav",
+				"navbar-right"
+			],
+			[
+				"s",
+				"stylesheet"
+			],
+			[
+				"btn",
+				"btn-primary"
+			],
+			[
+				"some",
+				"some_html_message"
+			],
+			[
+				"from",
+				"from_email"
+			],
+			[
+				"clea",
+				"cleaned_data"
+			],
+			[
+				"a",
+				"action\tAttr"
+			],
+			[
+				"query",
+				"queryset_list"
+			],
+			[
+				"H",
+				"Http404"
+			],
+			[
+				"Post",
+				"PostManager"
+			],
+			[
+				"Po",
+				"PostManager"
+			],
+			[
+				"auto",
+				"auto_now_add"
+			],
+			[
+				"share",
+				"share_string"
+			],
+			[
+				"create",
+				"create_slug"
+			],
+			[
+				"ex",
+				"exists"
+			],
+			[
+				"slu",
+				"slugify"
+			],
+			[
+				"page",
+				"page_request_var"
+			],
+			[
+				"b",
+				"BASE_DIR"
+			],
+			[
+				"insta",
+				"instance"
+			],
+			[
+				"req",
+				"request"
+			],
+			[
+				"blo",
+				"blogApp"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 2535,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/index.js",
+			"settings":
+			{
+				"buffer_size": 474,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 389.0,
+		"last_filter": "Package Control: i",
+		"selected_items":
+		[
+			[
+				"Package Control: i",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"anaco",
+				"Package Control: Discover Packages"
+			],
+			[
+				"install p",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 444.0
+	},
+	"console":
+	{
+		"height": 94.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/don/AppDev/Projects/mapprj3/package-lock.json",
+		"/Users/don/AppDev/Projects/mapprj2/app/index.js",
+		"/Users/don/AppDev/Projects/mapprj2/public/manifest.json",
+		"/Users/don/AppDev/Projects/mapprj2/scripts/start.js",
+		"/Users/don/AppDev/Projects/mapprj2/.env",
+		"/Users/don/AppDev/Projects/mapprj2/.gitignore",
+		"/Users/don/AppDev/Projects/mapprj2/Notes.txt",
+		"/Users/don/AppDev/Projects/mapprj2/app/registerServiceWorker.js",
+		"/Users/don/AppDev/Projects/mapprj2/.eslintrc",
+		"/Users/don/AppDev/Projects/mapprj2/app/components/ErrorBoundary.js",
+		"/Users/don/AppDev/Projects/mapprj2/config/webpack.config.dev.js",
+		"/Users/don/AppDev/Projects/mapprj2/webpack-dev.config.js",
+		"/Users/don/AppDev/Projects/mapprj2/public/index.html",
+		"/Users/don/AppDev/Projects/mapprj2/app/reducers/index.js",
+		"/Users/don/AppDev/Projects/mapprj2/scripts/build.js",
+		"/Users/don/AppDev/Projects/mapprj2/package.json",
+		"/Users/don/AppDev/Projects/mapprj2/config/webpack.config.prod.js",
+		"/Users/don/AppDev/Projects/mapprj2/app/index.html",
+		"/Users/don/AppDev/Projects/mapprj2/config/env.js",
+		"/Users/don/AppDev/Projects/mapprj2/manifest.json",
+		"/Users/don/AppDev/Projects/writerprj/manifest.json",
+		"/Users/don/AppDev/Projects/writerprj/src/templates/base.html",
+		"/Users/don/AppDev/Projects/mapprj2/webpack.config.js",
+		"/Users/don/AppDev/Projects/mapprj2/app/components/index.js",
+		"/Users/don/AppDev/Projects/mapprj2/.babelrc",
+		"/Users/don/AppDev/Projects/mapprj2/dist/index.html",
+		"/Users/don/AppDev/Projects/mapprj2/app/components/Map.js",
+		"/Users/don/AppDev/Projects/mapprj2/app/style.css",
+		"/Users/don/AppDev/Projects/mapprj2/data/countries3a.json",
+		"/Users/don/AppDev/Projects/mapprj2/data/states2.json",
+		"/Users/don/AppDev/Projects/mapprj2/app.js",
+		"/Users/don/AppDev/Projects/mapprj2/data_ui.js",
+		"/Users/don/AppDev/Projects/mapprj2/map.js",
+		"/Users/don/AppDev/Projects/mapprj2/index.html",
+		"/Users/don/AppDev/Projects/mapprj2/robots.txt",
+		"/Users/don/AppDev/Projects/mapprj2/index.js",
+		"/Users/don/AppDev/Projects/mapprj2_oldstuff/map copy.js",
+		"/Users/don/AppDev/Projects/mapprj2/snippets.js",
+		"/Users/don/AppDev/Projects/mapprj2/App.jsx",
+		"/Users/don/AppDev/Projects/mapprj2/data/states4d.json",
+		"/Users/don/AppDev/Projects/mapprj2/data/countries3.json",
+		"/Users/don/AppDev/Projects/mapprj2/data/state3.json",
+		"/Users/don/AppDev/Projects/mapprj2/data/states4a.json",
+		"/Users/don/AppDev/Projects/mapprj2/data/states4.json",
+		"/Users/don/AppDev/Projects/mapprj2/data/states.json",
+		"/Users/don/AppDev/Projects/mapprj2/data/countries2.json",
+		"/Users/don/AppDev/Projects/mapprj2/data/countries.json",
+		"/Users/don/AppDev/Projects/mapprj2/README.md",
+		"/Users/don/AppDev/Projects/mapprj/src/App.js",
+		"/Users/don/AppDev/Projects/mapprj/public/index.html",
+		"/Users/don/AppDev/Projects/mapprj/webpack.config.js",
+		"/Users/don/AppDev/Projects/mapprj/package.json",
+		"/Users/don/AppDev/Projects/mapprj/src/App.css",
+		"/Users/don/AppDev/Projects/writerprj/src/writerhome/templates/writerhome/booksList.html",
+		"/Users/don/AppDev/Projects/writerprj/src/static/css/booklist.css",
+		"/Users/don/AppDev/Projects/writerprj/src/templates/credits.html",
+		"/Users/don/AppDev/Projects/temp/bls_stats.py",
+		"/Users/don/AppDev/Projects/bls_stats.py",
+		"/Users/don/AppDev/Projects/writerprj/src/writerhome/signals.py",
+		"/Users/don/AppDev/Projects/writerprj/src/writerhome/apps.py",
+		"/Users/don/AppDev/Projects/writerprj/src/writerhome/views.py",
+		"/Users/don/AppDev/Projects/writerprj/src/templates/bio.html",
+		"/Users/don/AppDev/Projects/writerprj/src/templates/home.html",
+		"/Users/don/AppDev/Projects/writerprj/src/writerprj/settings/base.py",
+		"/Users/don/AppDev/Projects/writerprj/src/templates/snippets/js.html",
+		"/Users/don/AppDev/Projects/writerprj/src/templates/snippets/css.html",
+		"/Users/don/AppDev/Projects/writerprj/src/templates/license.html",
+		"/Users/don/AppDev/Projects/writerprj/lib/python3.5/site-packages/django_blog_it/django_blog_it/templates/dashboard/blog/blog_add.html",
+		"/Users/don/AppDev/Projects/writerprj/src/static/css/sidebar.css",
+		"/Users/don/AppDev/Projects/writerprj/src/templates/snippets/footer.html",
+		"/Users/don/AppDev/Projects/writerprj/src/writerprj/urls.py",
+		"/Users/don/AppDev/Projects/writerprj/lib/python3.5/site-packages/django_blog_it/posts/views.py",
+		"/Users/don/AppDev/Projects/writerprj/lib/python3.5/site-packages/django_blog_it/django_blog_it/templates/posts/index.html",
+		"/Users/don/AppDev/Projects/writerprj/lib/python3.5/site-packages/django_blog_it/django_blog_it/templates/posts/blog_view.html",
+		"/Users/don/AppDev/Projects/writerprj/lib/python3.5/site-packages/django_blog_it/django_blog_it/templates/posts/base.html",
+		"/Users/don/AppDev/Projects/writerprj/MicroPyramidBlog.css",
+		"/Users/don/AppDev/Projects/writerprj/src/templates/snippets/sidebar.html",
+		"/Users/don/AppDev/Projects/writerprj/src/static/css/bootstrap-theme.min.css",
+		"/Users/don/AppDev/Projects/writerprj/src/static/css/bootstrap.min.css",
+		"/Users/don/AppDev/Python/snippets.py",
+		"/Users/don/AppDev/Projects/writerprj/lib/python3.5/site-packages/django_blog_it/urls.py",
+		"/Users/don/AppDev/Projects/writerprj/src/templates/blog.html",
+		"/Users/don/AppDev/Projects/writerprj/lib/python3.5/site-packages/django_blog_it/django_blog_it/views.py",
+		"/Users/don/AppDev/Projects/writerprj/bin/activate",
+		"/Users/don/AppDev/Projects/writerprj/src/requirements.txt",
+		"/Users/don/AppDev/Projects/writerprj/src/static/js/booklist.js",
+		"/Users/don/AppDev/Projects/writerprj/src/static/js/classie.js",
+		"/Users/don/AppDev/Projects/writerprj/src/templates/registration/login.html",
+		"/Users/don/AppDev/Projects/writerprj/src/writerhome/urls.py",
+		"/Users/don/AppDev/Projects/writerprj/src/templates/snippets/form-snippet.html",
+		"/Users/don/AppDev/src_examples/Django/try-django-19/src/trydjango19/urls.py",
+		"/Users/don/AppDev/Projects/writerprj/src/writerhome/admin.py",
+		"/Users/don/AppDev/Projects/writerprj/src/writerhome/forms.py",
+		"/Users/don/AppDev/Projects/writerprj/src/templates/snippets/contact_manager_success.html",
+		"/Users/don/AppDev/Projects/writerprj/src/templates/snippets/contact_manager.html",
+		"/Users/don/AppDev/Projects/writerprj/lib/python3.5/site-packages/rest_framework/request.py",
+		"/Users/don/AppDev/Projects/writerprj/src/static/js/jquery.form.js",
+		"/Users/don/AppDev/Projects/writerprj/src/templates/snippets/modal_success_dlg.html",
+		"/Users/don/AppDev/Projects/writerprj/src/templates/snippets/comment_manager_success.html",
+		"/Users/don/AppDev/Projects/writerprj/src/static/js/utils.js",
+		"/Users/don/AppDev/src_examples/Django/Try-Django-1.8/src/templates/example_fluid.html",
+		"/Users/don/AppDev/Projects/writerprj/src/static/css/sidebar_ex.txt",
+		"/Users/don/AppDev/Projects/sidebar_ex.js",
+		"/Users/don/AppDev/Projects/sidebar_ex.css",
+		"/Users/don/AppDev/Projects/sidebar_ex.html",
+		"/Users/don/AppDev/Projects/writerprj/src/templates/contact.html",
+		"/Users/don/AppDev/Projects/writerprj/src/static/js/TweenMax.min.js",
+		"/Users/don/AppDev/Projects/writerprj/src/templates/snippets/crytpo_navbar.html",
+		"/Users/don/AppDev/Projects/writerprj/src/static/css/crypto_sidebar.css",
+		"/Users/don/AppDev/Projects/writerprj/src/writerhome/models.py",
+		"/Users/don/AppDev/Projects/writerprj/writerprj.sublime-project",
+		"/Users/don/Library/Application Support/Sublime Text 3/Packages/Anaconda/Anaconda.sublime-settings",
+		"/Users/don/Library/Application Support/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
+		"/Users/don/Library/Application Support/Sublime Text 3/Packages/Djaneiro/Settings/HTML (Django).sublime-settings",
+		"/Users/don/Library/Application Support/Sublime Text 3/Packages/User/HTML (Django).sublime-settings",
+		"/Users/don/AppDev/Projects/writerprj/lib/python3.5/site-packages/django/views/generic/base.py",
+		"/Users/don/AppDev/Projects/writerprj/src/templates/snippets/crytpo_sidebar.html",
+		"/Users/don/AppDev/Projects/writerprj/src/static/css/custom.css",
+		"/Users/don/AppDev/Projects/writerprj/src/templates/snippets/cryptotrader.css",
+		"/Users/don/AppDev/Projects/writerprj/src/templates/about.html",
+		"/Users/don/AppDev/Projects/writerprj/src/templates/registration/register.html",
+		"/Users/don/AppDev/Projects/writerprj/src/templates/form.html",
+		"/Users/don/AppDev/Projects/writerprj/src/templates/snippets/nav.html",
+		"/Users/don/AppDev/Projects/writerprj/src/writerhome/utils.py",
+		"/Users/don/AppDev/Projects/writerprj/src/writerhome/templates/register.html",
+		"/Users/don/AppDev/Projects/writerprj/src/writerhome/templates/writerhome/detail-update.html",
+		"/Users/don/AppDev/Projects/writerprj/src/writerhome/validators.py",
+		"/Users/don/AppDev/Projects/writerprj/src/writerhome/templates/writerhome/form.html"
+	],
+	"find":
+	{
+		"height": 39.0
+	},
+	"find_in_files":
+	{
+		"height": 101.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "package.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2535,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								781,
+								781
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 276.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 474,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 37.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "mapprj3.sublime-project",
+	"replace":
+	{
+		"height": 70.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 516.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 249.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

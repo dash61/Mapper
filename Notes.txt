@@ -1,0 +1,13 @@
+Notes:
+
+Credit globe icon images to:  Photo by Andrew Neel on Unsplash
+
+I set 2 env vars for debug:
+export PUBLIC_URL='.'
+export NODE_ENV='development'
+AFTER YOU SET THESE, CLOSE CHROME COMPLETELY AND RESTART IT.
+
+I also tried:
+export PUBLIC_URL='./public'
+in order to point to the public dir; see webpack.config.dev.js, cmts for InterpolateHtmlPlugin.
+
