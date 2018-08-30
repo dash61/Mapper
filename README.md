@@ -21,9 +21,14 @@ Things still to be done:
 
 To run this:
 
+* First, you will need to get API keys for 1) the Census Bureau, and 2) for mapbox/leaflet. Then create a file named keys.js, put it in the 'src' directory, and add these values:
+
+  * export const CENSUS_KEY='your key here';
+
+  * export const MAP_ACCESS_TOKEN='your key here';
+
 * Open Chrome
 * Copy this project to a local directory.
-* In your terminal window set to that local directory, do:
-   $ npm start
+* In your terminal window set to that local directory, do:    $ npm start
 * Chrome will display the app at localhost:3000.
 * Select a data source, data type, year, and hit the 'Go!' button to show the results. If there is no data for that combination, a red error message will appear to the right of the 'Clear' button. Usually it says 'Error: Not Found'.
