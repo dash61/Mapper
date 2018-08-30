@@ -1,7 +1,7 @@
 //import fetch from 'cross-fetch';
 //import 'whatwg-fetch';
-import axios from 'axios';
-import Cookies from 'js-cookie';
+//import axios from 'axios';
+//import Cookies from 'js-cookie';
 import { receiveRemoteData, errorRemoteData } from '../actions/actions.js';
 
 
@@ -47,8 +47,8 @@ function getData(url, urlParams, dispatch)
         .then((data) => { console.log("RCVD DATA: ", data); dispatch(receiveRemoteData(data)); })
         .catch((error) => { console.log('There was an error:', error); dispatch(errorRemoteData(error)); })
     }
-    else  // use POST FOR BLS - THIS DOESN'T WORK - GET CORS ERROR NO MATTER WHAT; NEED A WORKAROUND
-    {
+    //else  // use POST FOR BLS - THIS DOESN'T WORK - GET CORS ERROR NO MATTER WHAT; NEED A WORKAROUND
+    //{
         // requestData = new Request(url, {
         //     method: 'POST',
         //     headers: {'Accept': '*/*', //application/json', //, text/plain, */*',
@@ -96,33 +96,35 @@ function getData(url, urlParams, dispatch)
         //     credentials: 'same-origin',
         //     mode: 'no-cors',
         //     DataServiceVersion: '2.0'
-        // })
-        let csrftoken = Cookies.get('csrftoken'); // probably don't need
-        console.log("get_data - csrftoken = ", csrftoken);
-        axios.defaults.headers.post['Content-Type'] = 'application/json';
-        axios.defaults.xsrfCookieName = "csrftoken";
-        axios.defaults.xsrfHeaderName = "X-CSRFToken";
+        // }
+
+        // let csrftoken = Cookies.get('csrftoken'); // probably don't need
+        // console.log("get_data - csrftoken = ", csrftoken);
+        // axios.defaults.headers.post['Content-Type'] = 'application/json';
+        // axios.defaults.xsrfCookieName = "csrftoken";
+        // axios.defaults.xsrfHeaderName = "X-CSRFToken";
+
         //axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
         //axios.defaults.headers.post['Access-Control-Allow-Headers'] = 'Origin, Content-Type, X-Auth-Token';
-        axios.post(url, {
-            data: stringedData,
-            headers: {'Content-type': 'application/json', 'Origin': 'http://localhost:3000'},
-            withCredentials: true // false is the default
-        })
-        .then((response) => {
-            if (response.ok) {
-                console.log('fetched response =', response);
-                return response;
-            }
-            else {
-                console.log('Data not available, response=', response);
-                throw Error(response.statusText);
-            }
-        })
-        .then(response => response.json())
-        .then((data) => { console.log("RCVD DATA: ", data); dispatch(receiveRemoteData(data)); })
-        .catch((error) => { console.log('There was an error:', error); dispatch(errorRemoteData(error)); })
-    }
+        // axios.post(url, {
+        //     data: stringedData,
+        //     headers: {'Content-type': 'application/json', 'Origin': 'http://localhost:3000'},
+        //     withCredentials: true // false is the default
+        // })
+        // .then((response) => {
+        //     if (response.ok) {
+        //         console.log('fetched response =', response);
+        //         return response;
+        //     }
+        //     else {
+        //         console.log('Data not available, response=', response);
+        //         throw Error(response.statusText);
+        //     }
+        // })
+        // .then(response => response.json())
+        // .then((data) => { console.log("RCVD DATA: ", data); dispatch(receiveRemoteData(data)); })
+        // .catch((error) => { console.log('There was an error:', error); dispatch(errorRemoteData(error)); })
+    //}
     //let data = {};
 
 

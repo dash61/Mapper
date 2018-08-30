@@ -1,6 +1,6 @@
 import React, { Component } from 'react'; //'preact-compat';
 import L from 'leaflet';
-import 'leaflet-dvf';
+//import 'leaflet-dvf';
 import { basemapLayer } from 'esri-leaflet'; // old: , tiledMapLayer
 import { Map } from 'react-leaflet'; // old: , TileLayer
 import states from './states2.json';
