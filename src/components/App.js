@@ -166,11 +166,6 @@ class App extends Component {
         );
     }
 }
-/*
-*/
-//value={this.props.chosenYear} 
-// <button style={styles.btn} name="pick_year_btn" type="button" onClick={() => this.local_pickYear(2014)}>Pick Year</button>
-// col-md-3 col-lg-2
 
 // Mini css - columns:
 // Use col-sm, or one of the variants: col-sm-1 (or 2 thru 12)
@@ -187,29 +182,15 @@ function mapStateToProps(state) {
     }
 }
 
-// From the article -
-// https://github.com/reactjs/react-redux/blob/master/docs/api.md#api
-// [Using mapStateToProps in the connect call below,] the new component will subscribe
-// to Redux store updates. This means that any time the store is updated, mapStateToProps
-// will be called. [By 'the new component', he means the class obj returned from
-// the connect call below, all wired up.]
-
-// From the article - 
-// https://redux.js.org/docs/basics/Actions.html
-// The dispatch() function can be accessed directly from the store as store.dispatch(),
-// but more likely you'll access it using a helper like react-redux's connect().
-
-// From the article - 
-// https://hackernoon.com/a-guide-to-creating-web-applications-with-react-and-redux-2f6bc0775951
-// [W]e have to connect() our App component to the Redux storage and mapStateToProps()
-// so that the component is passed the right props.
-
 // pickYear etc below are all action creators imported above. These fns will be turned
 // into props properties, though wrapped in another function that calls dispatch, so that
 // invoking this.props.pickYear() will call dispatch to call that action on the reducer.
 // Notice the (App) at the end. This means the connect call returns a react
 // component class with all the internal wiring for redux, which then gets initialized
 // with the App class. So it is kind of like a mix-in.
+
+// Connect returns a component that links App to these new behaviors specified by the
+// args passed to it.
 export default connect(mapStateToProps, { pickDataSource,
                                           pickDataSource2,
                                           pickYear,
@@ -223,7 +204,6 @@ export default connect(mapStateToProps, { pickDataSource,
                                           fetchMapDataIfNeeded
                                         })(App);
 
-// old: // export default App;
 
 
 

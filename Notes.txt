@@ -1,6 +1,6 @@
 Notes:
 
-Credit globe icon images to:  Photo by Andrew Neel on Unsplash
+Credit globe icon images (favicons) to:  Photo by Andrew Neel on Unsplash
 
 I set 2 env vars for debug:
 export PUBLIC_URL='.'
@@ -10,4 +10,13 @@ AFTER YOU SET THESE, CLOSE CHROME COMPLETELY AND RESTART IT.
 I also tried:
 export PUBLIC_URL='./public'
 in order to point to the public dir; see webpack.config.dev.js, cmts for InterpolateHtmlPlugin.
+
+To run this:
+1) Open Chrome
+2) In your terminal window set to the mapprj3 directory, do:
+   $ npm start
+3) Chrome will display the app at localhost:3000.
+4) To see console.log output, as usual right click in the chrome window
+   and select "Inspect". In the window that opens, find the console.
+
 

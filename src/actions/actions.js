@@ -14,13 +14,6 @@ import {
     LOAD_DATA_FROM_CACHE
 } from '../constants';
 
-// Actions, from https://redux.js.org/docs/basics/Actions.html:
-// Actions are payloads of information that send data from your application to your store.
-// They are the only source of information for the store. You send them to the store
-// using store.dispatch().
-
-// Action creators are functions that create actions (actions are the payload, ie data,
-// of the mechanism to update state). They just return an action.
 
 // Action creators. Imported and called by components/App.js.
 export const pickDataSource = (dataSource) => {

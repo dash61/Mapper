@@ -12,8 +12,8 @@ import './map.css';
 import { geoType } from '../../constants.js';
 import { getNumericRangeOfArray, reformatData } from '../../misc/misc.js';
 import { RECEIVE_REMOTE_DATA, CLEAR_DATA, LOAD_DATA_FROM_CACHE } from '../../constants.js';
-//import cloneLayer from 'leaflet-clonelayer';
-//var cloneLayer = require('leaflet-clonelayer');
+import { MAP_ACCESS_TOKEN } from '../../keys';
+
 
 const NUM_LEGEND_SEGMENTS = 11;
 
@@ -34,19 +34,12 @@ config.tileLayer = {
     params: {
         //attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
         id: '',
-        accessToken: 'pk.eyJ1IjoiZGFzaDYxIiwiYSI6ImNqOWo2OHQ1aDAyOTEycW55bnVuOGcxY3MifQ.ZuMjCdTecO1cAzljwY126w',
+        accessToken: MAP_ACCESS_TOKEN,
         noWrap: false,
         continuousWorld: false,
         bounds: [[-90, -180],[90, 180]] // keep from duplicating world map
     }
 };
-
-//const mapboxTiles = 'https://api.mapbox.com/styles/v1/dash61/cj9zoz0ps8rbo2rny2npvnv7h/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZGFzaDYxIiwiYSI6ImNqOWo2OHQ1aDAyOTEycW55bnVuOGcxY3MifQ.ZuMjCdTecO1cAzljwY126w';
-//const mapboxTiles = 'https://www.openstreetmap.org/api/0.6/way/260501602/full';
-//const mapboxAttr = '&copy; <a href="https://www.mapbox.com/about/maps/">Mapbox</a> &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>';
-
-// const imageBounds = [[48.1, -126.144], // latlng fmt
-//                      [24.3, -69.35]];
 
 
 
@@ -54,7 +47,7 @@ export default class MyMap extends Component {
     constructor(props) {
         super(props);
         console.log("MyMap - props=", props); // loadLayerData is passed; call this to update the store (during init, and later)
-        const { mapData, loadLayerData, turnLayerOn, turnLayerOff, clearData } = props; // has store variables
+        const { loadLayerData, turnLayerOn, turnLayerOff } = props; // why is mapData not used?
         this._mapNode = null;
         this.markers = [];
         this.geoData = [];
@@ -72,31 +65,11 @@ export default class MyMap extends Component {
             layerData: null,
             visible: false, // this is from some old code that I copied that deals w/ markers; inside zoomend fn
             baseMap: null };
-        this.handleZoomLevelChange = this.handleZoomLevelChange.bind(this);
-        this.resetHighlightState = this.resetHighlightState.bind(this);
-        this.resetHighlightCountry = this.resetHighlightCountry.bind(this);
-        //this.getData = this.getData.bind(this);
-        this.zoomToFeature = this.zoomToFeature.bind(this);
-        this.statesOnEachFeature = this.statesOnEachFeature.bind(this);
-        this.countiesStyle = this.countiesStyle.bind(this);
-        this.statesStyle = this.statesStyle.bind(this);
-        this.countriesStyle = this.countriesStyle.bind(this);
-        this.countriesOnEachFeature = this.countriesOnEachFeature.bind(this);
-        this.countiesOnEachFeature = this.countiesOnEachFeature.bind(this);
-        //this.countriesStyle = this.countriesStyle.bind(this);
-        this.componentDidMount = this.componentDidMount.bind(this);
-        this.highlightFeatureState = this.highlightFeatureState.bind(this);
-        this.highlightFeatureCountry = this.highlightFeatureCountry.bind(this);
-        this.setStateStyle = this.setStateStyle.bind(this);
-        this.setCountryStyle = this.setCountryStyle.bind(this);
-        this.setCountyStyle = this.setCountyStyle.bind(this);
-        this.changeLayerVisibility = this.changeLayerVisibility.bind(this);
-        this.getColor = this.getColor.bind(this);
     }
 
     // This fn is only called once, when the states layer is created.
     // This should match setCountyStyle when zoom=4, highlightOn=false.
-    countiesStyle() { // feature) {
+    countiesStyle = () => { // feature) {
         return {
             weight : 0.2,
             opacity : 0.0,
@@ -109,7 +82,7 @@ export default class MyMap extends Component {
 
     // This fn is only called once, when the states layer is created.
     // This should match setStateStyle when zoom=4, highlightOn=false.
-    statesStyle() { // feature) {
+    statesStyle = () => { // feature) {
         return {
             weight : 0.2,
             //opacity : 1,
@@ -121,7 +94,7 @@ export default class MyMap extends Component {
     }
 
     // This fn is only called once, when the countries layer is created.
-    countriesStyle() { // feature) {
+    countriesStyle = () => { // feature) {
         return {
             weight : 0.4,
             opacity : 0.7,
@@ -131,7 +104,7 @@ export default class MyMap extends Component {
         }
     }
 
-    highlightFeatureState(e) {
+    highlightFeatureState = (e) => {
         this.setStateStyle (e.target, this.state.currentZoomLevel, true);
         this.setCountyStyle (e.target, this.state.currentZoomLevel, true);
         if(!L.Browser.ie && !L.Browser.opera){
@@ -139,7 +112,7 @@ export default class MyMap extends Component {
         }
     }
     
-    highlightFeatureCountry(e) {
+    highlightFeatureCountry = (e) => {
         this.setCountryStyle (e.target, this.state.currentZoomLevel, true);
         if(!L.Browser.ie && !L.Browser.opera){
             e.target.bringToFront();
@@ -147,7 +120,7 @@ export default class MyMap extends Component {
     }
     
     // This fn gets called once.
-    setCountryStyle (layer, zoom, highlightOn)
+    setCountryStyle = (layer, zoom, highlightOn) =>
     {
         let newWeight = 1;
         let newColor = 'grey';
@@ -183,7 +156,7 @@ export default class MyMap extends Component {
     }
 
     // This fn gets called once.
-    setStateStyle (layer, zoom, highlightOn)
+    setStateStyle = (layer, zoom, highlightOn) =>
     {
         let newWeight = 1;
         let newColor = 'grey';
@@ -218,7 +191,7 @@ export default class MyMap extends Component {
     }
 
     // This fn gets called once.
-    setCountyStyle (layer, zoom, highlightOn)
+    setCountyStyle = (layer, zoom, highlightOn) => 
     {
         let newWeight = 1;
         let newColor = 'grey';
@@ -271,16 +244,16 @@ export default class MyMap extends Component {
         );
     }
 
-    resetHighlightState(e) {
+    resetHighlightState = (e) => {
         this.setStateStyle (e.target, this.state.currentZoomLevel, false);
         this.setCountyStyle (e.target, this.state.currentZoomLevel, false);
     }
     
-    resetHighlightCountry(e) {
+    resetHighlightCountry = (e) => {
         this.setCountryStyle (e.target, this.state.currentZoomLevel, false);
     }
     
-    zoomToFeature(e) {
+    zoomToFeature = (e) => {
         // pad fitBounds() so features aren't hidden under the Filter UI element
         var fitBoundsParams = {
           paddingTopLeft: [10,10],
@@ -290,14 +263,14 @@ export default class MyMap extends Component {
         this.state.map.fitBounds(e.target.getBounds(), fitBoundsParams);
     }
 
-    componentWillUnmount() {
+    componentWillUnmount = () => {
         // code to run just before unmounting the component
         // this destroys the Leaflet map object & related event listeners
         //this.state.map.remove();
     }
 
     // This gets called once *per county* when the county2.json file is loaded.
-    countiesOnEachFeature(feature, layer) {
+    countiesOnEachFeature = (feature, layer) => {
         //window.console.log ("countiesOnEachFeature enter; feature=", feature);
         let tempObj = {};
         tempObj.name = feature.properties.NAME;
@@ -315,7 +288,7 @@ export default class MyMap extends Component {
     }
 
     // This gets called once *per state* when the states2.json file is loaded.
-    statesOnEachFeature(feature, layer) {
+    statesOnEachFeature = (feature, layer) => {
         //window.console.log("Inside the statesOnEachFeature function!!!!!!!!!!!!");
         //this.markers.push(
         //    L.circleMarker(
@@ -360,7 +333,7 @@ export default class MyMap extends Component {
     }
 
     // This gets called once *per country* when the countries3a.json file is loaded.
-    countriesOnEachFeature(feature, layer) {
+    countriesOnEachFeature = (feature, layer) => {
         // if (feature.properties.NAME == 'Aruba')
         //     window.console.log ("countriesOnEachFeature enter; feature=", feature);
         let tempObj = {};
@@ -385,7 +358,7 @@ export default class MyMap extends Component {
 
     // Turn on or off an overlay layer. Pass in name string of layer and on/off boolean.
     // This will add or remove the layer from the layers group.
-    changeLayerVisibility(layerName, isVisible)
+    changeLayerVisibility = (layerName, isVisible) =>
     {
         for (let key in this.state.layerData)
         {
@@ -423,7 +396,7 @@ export default class MyMap extends Component {
     }
 
     // taken from http://leafletjs.com/examples/choropleth/.
-    getColor(d)
+    getColor = (d) =>
     {
         return d > 1000 ? '#800026' :
                d > 500  ? '#BD0026' :
@@ -435,7 +408,7 @@ export default class MyMap extends Component {
                           '#FFEDA0';
     }
 
-    componentDidMount() {
+    componentDidMount = () => {
         // code to run just after the component "mounts" / DOM elements are created
         // we could make an AJAX request for the GeoJSON data here if it wasn't stored locally
         //this.getData();
@@ -633,7 +606,7 @@ export default class MyMap extends Component {
     //   controlLayers.addOverlay(geojsonLayer, 'name of it');
     init (id) {
         if (this.state.map) return;
-        window.console.log("init - id=", id, ", countries=", countries); // drl debug
+        //window.console.log("init - id=", id, ", countries=", countries);
 
         // this function creates the Leaflet map object and is called after the Map component mounts
         const leafletMap = id.leafletElement;
@@ -658,7 +631,7 @@ export default class MyMap extends Component {
             const updatedZoomLevel = leafletMap.getZoom();
             this.handleZoomLevelChange(updatedZoomLevel);
             //window.console.log("new zoom is ", updatedZoomLevel, ", local state=", this.state);
-            window.console.log("new zoom is ", updatedZoomLevel, ", store state=", this.props.mapData);
+            //window.console.log("new zoom is ", updatedZoomLevel, ", store state=", this.props.mapData);
             if (updatedZoomLevel > 5) {
                 if (!this.state.visible) {
                     for (let i = 0; i < this.markers.length; i++) {
@@ -806,18 +779,9 @@ export default class MyMap extends Component {
         }
     }
 
-    /*
-    drl - todo
-    - put labels on counties when zoomed in 8 or more AND highlighted,
-      or if zoomed in 10 or more and highlighted or not.
-    - 
-    - 
-    - 
-    - 
-    */
 
     // NOTE - country zindex is kept at 640.
-    handleZoomLevelChange(newZoomLevel) {
+    handleZoomLevelChange = (newZoomLevel) => {
         this.setState({ currentZoomLevel: newZoomLevel });
         if (newZoomLevel <= 3)
         {
@@ -855,93 +819,3 @@ export default class MyMap extends Component {
         );
     }
 }
-/* tips:
-        // how to update an array in the state:
-        // this.setState(prevState => ({
-        //     array: [...prevState.array, newElement]
-        // }))
-
-        // TO copy an object: var shallowCopy = { ...oldObject };
-        // TO clear an array: a = []; OR: a.splice(0, a.length); OR: a.length = 0;
-        // TO clear an object (shallow, no internal references): o = {};
-
-
-*/
-                //<div ref={(node) => this._mapNode = node} id="map">
-                //</div>
-
-                    //<TileLayer
-                    //    attribution={mapboxAttr}
-                    //    url={mapboxTiles}
-                    //    noWrap={false}
-                    //    continuousWorld={false}
-                    //    bounds={[[-90, -180],[90, 180]]} // keep from duplicating world map
-                    // /TileLayer> or />
-
-// pan button bind code for the ctor:
-        // this.handleUpPanClick = this.handleUpPanClick.bind(this);
-        // this.handleRightPanClick = this.handleRightPanClick.bind(this);
-        // this.handleLeftPanClick = this.handleLeftPanClick.bind(this);
-        // this.handleDownPanClick = this.handleDownPanClick.bind(this);
-
-// pan button handlers:
-    // handleUpPanClick() {
-    //     const leafletMap = this._mapNode.leafletElement;
-    //     leafletMap.panBy([0, -100]);
-    // }
-
-    // handleRightPanClick() {
-    //     const leafletMap = this._mapNode.leafletElement;
-    //     leafletMap.panBy([100, 0]);
-    // }
-
-    // handleLeftPanClick() {
-    //     const leafletMap = this._mapNode.leafletElement;
-    //     leafletMap.panBy([-100, 0]);
-    // }
-
-    // handleDownPanClick() {
-    //     const leafletMap = this._mapNode.leafletElement;
-    //     leafletMap.panBy([0, 100]);
-    // }
-
-        // Style for the pan buttons:
-        // const styles = {
-        //     btn_style: {
-        //         borderWidth: '1px',
-        //         borderRadius: '6px',
-        //         backgroundColor: 'lightblue',
-        //         fontFamily: 'Tahoma, Geneva, sans-serif',
-        //         height: '20px',
-        //         lineHeight: '10px'
-        //     }
-        // }
-
-                    // <Control position="topright">
-                    //     <div style={{
-                    //             backgroundColor: 'rgba(0, 0, 0, 0)',
-                    //             padding: '5px',
-                    //         }} >
-                    //         <div style={{ marginLeft: '37px' }}>
-                    //             <button onClick={this.handleUpPanClick} style={styles.btn_style}>
-                    //                 Pan up
-                    //             </button>
-                    //         </div>
-                    //         <div>
-                    //             <button onClick={this.handleLeftPanClick} style={styles.btn_style}>
-                    //                 Pan left
-                    //             </button>
-                    //             <button onClick={this.handleRightPanClick} style={styles.btn_style}>
-                    //                 Pan right
-                    //             </button>
-                    //         </div>
-                    //         <div style={{ marginLeft: '30px' }}>
-                    //             <button onClick={this.handleDownPanClick} style={styles.btn_style}>
-                    //                 Pan down
-                    //             </button>
-                    //         </div>
-                    //     </div>
-                    // </Control>
-
-
-//export default MyMap;

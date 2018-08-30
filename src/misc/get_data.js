@@ -4,6 +4,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import { receiveRemoteData, errorRemoteData } from '../actions/actions.js';
 
+
 // Just a helper function to get data from a URL and return it.
 // Being async, it will first return an OK response that the fetch is underway.
 // Later, it will return the data.
@@ -46,7 +47,7 @@ function getData(url, urlParams, dispatch)
         .then((data) => { console.log("RCVD DATA: ", data); dispatch(receiveRemoteData(data)); })
         .catch((error) => { console.log('There was an error:', error); dispatch(errorRemoteData(error)); })
     }
-    else  // use POST FOR BLS
+    else  // use POST FOR BLS - THIS DOESN'T WORK - GET CORS ERROR NO MATTER WHAT; NEED A WORKAROUND
     {
         // requestData = new Request(url, {
         //     method: 'POST',

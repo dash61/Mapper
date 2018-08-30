@@ -456,19 +456,10 @@
 	"buffers":
 	[
 		{
-			"file": "package.json",
-			"settings":
-			{
-				"buffer_size": 2535,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "src/index.js",
 			"settings":
 			{
-				"buffer_size": 474,
+				"buffer_size": 824,
 				"line_ending": "Unix"
 			}
 		}
@@ -526,6 +517,8 @@
 	},
 	"file_history":
 	[
+		"/Users/don/AppDev/Projects/mapprj3/mapprj3.sublime-workspace",
+		"/Users/don/AppDev/Projects/mapprj3/package.json",
 		"/Users/don/AppDev/Projects/mapprj3/package-lock.json",
 		"/Users/don/AppDev/Projects/mapprj2/app/index.js",
 		"/Users/don/AppDev/Projects/mapprj2/public/manifest.json",
@@ -651,9 +644,7 @@
 		"/Users/don/AppDev/Projects/writerprj/src/templates/snippets/nav.html",
 		"/Users/don/AppDev/Projects/writerprj/src/writerhome/utils.py",
 		"/Users/don/AppDev/Projects/writerprj/src/writerhome/templates/register.html",
-		"/Users/don/AppDev/Projects/writerprj/src/writerhome/templates/writerhome/detail-update.html",
-		"/Users/don/AppDev/Projects/writerprj/src/writerhome/validators.py",
-		"/Users/don/AppDev/Projects/writerprj/src/writerhome/templates/writerhome/form.html"
+		"/Users/don/AppDev/Projects/writerprj/src/writerhome/templates/writerhome/detail-update.html"
 	],
 	"find":
 	{
@@ -688,46 +679,16 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "package.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2535,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								781,
-								781
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 276.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "src/index.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 474,
+						"buffer_size": 824,
 						"regions":
 						{
 						},
@@ -754,7 +715,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 25.0
+		"height": 26.0
 	},
 	"input":
 	{

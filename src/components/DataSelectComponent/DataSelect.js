@@ -72,15 +72,10 @@ export default class DataSelect extends Component
                     <div className='button-group responsive-padding' style={styles.btns_style}>
                         <select name='data_src' id="src-dropdown" onChange={e => this.changeSrc(e.target.value)}>
                             <option value="census">Census Bureau</option>
-                            <option value="bls">Bureau of Labor Statistics</option>
-                            <option value="fema">FEMA</option>
-                            <option value="usgs">USGS</option>
                         </select>
                         <MyDS2Select name='data_src2' id="src2-dropdown" onChange={e => this.changeSrc2(e.target.value)} source={this.state.src1SelectValue}>
                         </MyDS2Select>
                         <select name='data_year' id="yr-dropdown" onChange={e => this.props.onYearChange(e.target.value)}>
-                            <option value="2017">2017</option>
-                            <option value="2016">2016</option>
                             <option value="2015">2015</option>
                             <option value="2014">2014</option>
                             <option value="2013">2013</option>
@@ -107,65 +102,19 @@ export default class DataSelect extends Component
         );
     }
 }
-/*
-    getInitialState()
-    {
-        return {
-            childSelectValue: DATA_SRC_CENSUS
-        }
-    }
+/* for the future, get these running:
+                            <option value="bls">Bureau of Labor Statistics</option>
+                            <option value="fema">FEMA</option>
+                            <option value="usgs">USGS</option>
+The Bureau of Labor Statistics (BLS) has a CORS issue (ie, it doesn't handle it)
+and so you can't access them via a browser like I'm doing here. You will have to
+instead use something like an AWS server to ping them. Probably be better to have
+the AWS server ping all sites, and use an api to go back and forth from the
+browser to AWS.
 
-                            value={this.state.childSelectValue}
-
+For the years dropdown:
+                            <option value="2017">2017</option>
+                            <option value="2016">2016</option>
+These don't work with the Census Bureau; apparently, they don't have the data
+online yet.
 */
-/*
-                        <select name='data_src2' id="src2-dropdown" onChange={e => onDataSrc2Change(e.target.value)}>
-                            <option value="totalpop">Total Population</option>
-                            <option value="popwhite">Population - White Only</option>
-                            <option value="popblk">Population - Black Only</option>
-                            <option value="popasia">Population - Asian Only</option>
-                            <option value="pophisp">Population - Hispanic Only</option>
-                            <option value="popother">Population - All Others</option>
-                            <option value="popmale">Population - Males Only</option>
-                            <option value="popfem">Population - Females Only</option>
-                            <option value="poplesshi">Population - Less than High School</option>
-                            <option value="pophi">Population - High School Graduates</option>
-                            <option value="poplesscoll">Population - Some College</option>
-                            <option value="popbach">Population - Bachelors or Higher</option>
-                            <option value="popsch">Population - School Enrollment</option>
-                            <option value="popcoll">Population - College Enrollment</option>
-                        </select>
-
-
-
-
-
-//value={this.state.defaultYear} 
-
-//export default DataSelect;
-
-    // var url = 'https://api.instagram.com/v1/media/popular?client_id=' + this.props.apiKey + '&callback=?';
-
-    // $.getJSON(url, function(result) {
-
-    //     if(!result || !result.data || !result.data.length){
-    //         return;
-    //     }
-    // }
-
-                // SelectBox (
-                // {
-                //     label: "Select Data Source",
-                //     className: 'main-select-box', // orig: my-example-select-box
-                //     onChange: this.handleChange,
-                //     value: this.state.source
-                // },
-                // option({key: 'red', value: 'red'}, 'Red'),
-                // option({value: 'green'}, 'Green'),
-                // option({value: 'blue'}, 'Blue'),
-                // option({value: 'black'}, 'Black'),
-                // option({value: 'orange'}, 'Orange'),
-                // option({value: 'greenish'}, 'Light greenish with a little bit of yellow')
-                // ),
-*/
-

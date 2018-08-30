@@ -1,7 +1,7 @@
 {
   "short_name": "Mapper",
   "name": "Mapper",
-  "description": "A mock progressive web app built with React, Redux, Preact and mini.css.",
+  "description": "A mock progressive web app built with React and Redux.",
   "lang": "en-US",
   "icons": [
     {

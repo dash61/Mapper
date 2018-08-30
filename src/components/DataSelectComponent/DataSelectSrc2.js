@@ -52,7 +52,8 @@ export default class MyDS2Select extends Component {
 
     fillOptions(props) {
         let srcArray = [];
-        this.state.options = []; // clear old options array or get errors about duplicate keys
+        //this.setState({ options: [] }); // this doesn't work
+        this.state.options = [];  // clear old options array or get errors about duplicate keys
         switch (props.source)
         {
             case DATA_SRC_CENSUS:

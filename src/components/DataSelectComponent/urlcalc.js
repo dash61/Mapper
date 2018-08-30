@@ -17,19 +17,19 @@ import { DATA_SRC_CENSUS,
          DATA_SRC2_POPCOLL,
          DATA_SRC_BLS_EMPLOYMENT,
        } from '../../constants';
+import {CENSUS_KEY, BLS_KEY } from '../../keys'
 
 
+//const DATA_SRC_MISC_URL = 'http://catalog.data.gov/api/3/';
 
-const DATA_SRC_BLS_URL = 'https://api.bls.gov/publicAPI/v2/timeseries/';
-const DATA_SRC_MISC_URL = 'http://catalog.data.gov/api/3/';
+// The state FIPS codes. Note that these are not just the numbers 1 thru 56, some are missing.
+//const STATES="01 02 04 05 06 08 09 10 11 12 13 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 44 45 46 47 48 49 50 51 53 54 55 56";
 
-// The state FIPS codes.
-const STATES="01 02 04 05 06 08 09 10 11 12 13 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 44 45 46 47 48 49 50 51 53 54 55 56";
 
 function figureOutURL (year, dataSrc, dataSrc2)
 {
     console.log("figureOutURL - passed year=", year, ", and data src=", dataSrc, ", and data src2=", dataSrc2);
-    let statesArray = STATES.split(' ');
+    //let statesArray = STATES.split(' ');
     let finalURL = '';
     let finalParams = {};
 
@@ -38,7 +38,6 @@ function figureOutURL (year, dataSrc, dataSrc2)
         case DATA_SRC_CENSUS:// old: for=tract:*&in=state:01&key=...
              {
                 const DATA_SRC_CENSUS_URL = 'https:/api.census.gov/data/'; // add 2010.json, eg
-                const CENSUS_KEY1='0474938e8255c78f1fa2c4afedde8005421dfb10';
                 let middle = '';
 
                 switch (dataSrc2)
@@ -103,18 +102,13 @@ function figureOutURL (year, dataSrc, dataSrc2)
                          break;
 
                 }
-                // https://api.census.gov/data/2016/acs/acs1/profile?get=DP02_0001E&for=county:*&key=
-             //finalURL = DATA_SRC_CENSUS_URL + year.toString() + "/acs5?get=B01003_001E&for=tract:*&in=state:01&key=" + CENSUS_KEY;
-             finalURL = DATA_SRC_CENSUS_URL + year.toString() + middle + '&key=' + CENSUS_KEY1;
-//                "/acs5?get=B01003_001E&for=county:*&key=" + CENSUS_KEY;
-//                "/acs5?get=B01003_001E&for=tract:*&in=state:01&key=" + CENSUS_KEY;
+             finalURL = DATA_SRC_CENSUS_URL + year.toString() + middle + '&key=' + CENSUS_KEY;
              }
              break;
 
         case DATA_SRC_BLS:
              console.log("figureOutURL - got to bls datasrc");
              const DATA_SRC_BLS_URL = 'https://api.bls.gov/publicAPI/v2/timeseries/data/'; //?registrationkey=';
-             const CENSUS_KEY2='f0a6af7e463a40618638b1384b8579ae'; // YOU HAVE TO RE-REGISTER ONCE A YEAR!!! GO TO https://data.bls.gov/registrationEngine/.
              finalURL = DATA_SRC_BLS_URL;
              // LAST REGISTRATION WAS 12/22/2017.
 
@@ -136,7 +130,7 @@ p = requests.post('https://api.bls.gov/publicAPI/v2/timeseries/data/', data=data
                      finalParams = {"seriesid": ['CUUR0000SA0','SUUR0000SA0'],
                                     "startyear": year.toString(),
                                     "endyear": yearEnd.toString()};//,
-                                    //"registrationkey": CENSUS_KEY2};
+                                    //"registrationkey": BLS_KEY};
                      break;
 
                 default:

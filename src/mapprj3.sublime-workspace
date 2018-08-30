@@ -4,16 +4,120 @@
 		"selected_items":
 		[
 			[
+				"req",
+				"requestData"
+			],
+			[
+				"url",
+				"urlParams"
+			],
+			[
+				"cu",
+				"currentUrlParams"
+			],
+			[
+				"cur",
+				"currentUrl"
+			],
+			[
+				"use",
+				"useCache"
+			],
+			[
+				"curre",
+				"currentUrlParams"
+			],
+			[
+				"curr",
+				"currentUrlParams"
+			],
+			[
+				"M",
+				"MyDS2Select"
+			],
+			[
+				"D",
+				"DATA_SRC_CENSUS"
+			],
+			[
+				"create",
+				"createReactClass"
+			],
+			[
+				"bls",
+				"bls_sources"
+			],
+			[
+				"cens",
+				"census_sources"
+			],
+			[
+				"num",
+				"numCountyRows"
+			],
+			[
+				"numS",
+				"numStateRows"
+			],
+			[
+				"firs",
+				"firstRow"
+			],
+			[
+				"firstR",
+				"firstRowCols"
+			],
+			[
+				"over",
+				"overlayData"
+			],
+			[
+				"dataS",
+				"dataSrc2"
+			],
+			[
+				"data",
+				"dataSrc2"
+			],
+			[
+				"loc",
+				"local_clearData"
+			],
+			[
+				"P",
+				"Population"
+			],
+			[
+				"old",
+				"oldArray"
+			],
+			[
+				"ind",
+				"indexToCheck"
+			],
+			[
+				"lay",
+				"layerOn"
+			],
+			[
+				"turnL",
+				"turnLayerOff"
+			],
+			[
+				"load",
+				"loadLayerData"
+			],
+			[
+				"pr",
+				"properties"
+			],
+			[
 				"dat",
 				"dataSrc"
 			],
 			[
 				"out",
 				"outerObj"
-			],
-			[
-				"data",
-				"dataSource"
 			],
 			[
 				"Dat",
@@ -30,10 +134,6 @@
 			[
 				"requ",
 				"requestRemoteData"
-			],
-			[
-				"over",
-				"overlayKey"
 			],
 			[
 				"TURN",
@@ -60,16 +160,8 @@
 				"overlayData"
 			],
 			[
-				"num",
-				"numLayers"
-			],
-			[
 				"onCl",
 				"onClearPressed"
-			],
-			[
-				"lay",
-				"layerNum"
 			],
 			[
 				"cons",
@@ -324,10 +416,6 @@
 				"selectedButton"
 			],
 			[
-				"loc",
-				"localStorage"
-			],
-			[
 				"pre",
 				"previouslySelectedButton"
 			],
@@ -426,94 +514,6 @@
 			[
 				"A",
 				"AboutView"
-			],
-			[
-				"Hom",
-				"HomeView"
-			],
-			[
-				"dj",
-				"django"
-			],
-			[
-				"Si",
-				"SignUp"
-			],
-			[
-				"Sign",
-				"SignUpForm"
-			],
-			[
-				"fa-sta",
-				"fa-stack-1x"
-			],
-			[
-				"fa-s",
-				"fa-stack-2x"
-			],
-			[
-				"bord",
-				"border-color"
-			],
-			[
-				"bac",
-				"background-color"
-			],
-			[
-				"nav",
-				"navbar-right"
-			],
-			[
-				"s",
-				"stylesheet"
-			],
-			[
-				"btn",
-				"btn-primary"
-			],
-			[
-				"some",
-				"some_html_message"
-			],
-			[
-				"from",
-				"from_email"
-			],
-			[
-				"clea",
-				"cleaned_data"
-			],
-			[
-				"a",
-				"action\tAttr"
-			],
-			[
-				"query",
-				"queryset_list"
-			],
-			[
-				"H",
-				"Http404"
-			],
-			[
-				"Post",
-				"PostManager"
-			],
-			[
-				"Po",
-				"PostManager"
-			],
-			[
-				"auto",
-				"auto_now_add"
-			],
-			[
-				"share",
-				"share_string"
-			],
-			[
-				"create",
-				"create_slug"
 			]
 		]
 	},
@@ -523,52 +523,16 @@
 			"file": "reducers/reducers.js",
 			"settings":
 			{
-				"buffer_size": 7462,
+				"buffer_size": 11722,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "actions/actions.js",
+			"file": "misc/misc.js",
 			"settings":
 			{
-				"buffer_size": 5133,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "components/MapComponent/Map.js",
-			"settings":
-			{
-				"buffer_size": 24716,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "components/App.js",
-			"settings":
-			{
-				"buffer_size": 7522,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "components/DataSelectComponent/DataSelect.js",
-			"settings":
-			{
-				"buffer_size": 4598,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "constants.js",
-			"settings":
-			{
-				"buffer_size": 3235,
+				"buffer_size": 7944,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -577,7 +541,71 @@
 			"file": "components/DataSelectComponent/urlcalc.js",
 			"settings":
 			{
-				"buffer_size": 1190,
+				"buffer_size": 8389,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "components/MapComponent/Map.js",
+			"settings":
+			{
+				"buffer_size": 39189,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "misc/get_data.js",
+			"settings":
+			{
+				"buffer_size": 5723,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/don/AppDev/Projects/mapprj3/README.md",
+			"settings":
+			{
+				"buffer_size": 169,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "actions/actions.js",
+			"settings":
+			{
+				"buffer_size": 4265,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "constants.js",
+			"settings":
+			{
+				"buffer_size": 4273,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "components/DataSelectComponent/DataSelectSrc2.js",
+			"settings":
+			{
+				"buffer_size": 3735,
+				"encoding": "UTF-8",
+				"line_ending": "Unix",
+				"name": "var MySelect = React.createClass({"
+			}
+		},
+		{
+			"file": "components/DataSelectComponent/DataSelect.js",
+			"settings":
+			{
+				"buffer_size": 7309,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -638,6 +666,7 @@
 	[
 		"/Users/don/AppDev/Projects/mapprj3",
 		"/Users/don/AppDev/Projects/mapprj3/public",
+		"/Users/don/AppDev/Projects/mapprj3/scripts",
 		"/Users/don/AppDev/Projects/mapprj3/src",
 		"/Users/don/AppDev/Projects/mapprj3/src/actions",
 		"/Users/don/AppDev/Projects/mapprj3/src/components",
@@ -648,10 +677,21 @@
 	],
 	"file_history":
 	[
-		"/Users/don/AppDev/Projects/mapprj3/src/misc/get_data.js",
-		"/Users/don/AppDev/Projects/mapprj3/src/index.js",
-		"/Users/don/AppDev/Projects/mapprj3/src/components/DataSelectComponent/DataSelect.js",
+		"/Users/don/AppDev/Projects/bls.py",
+		"/Users/don/AppDev/Projects/mapprj3/node_modules/leaflet-dvf/dist/leaflet-dvf.js",
 		"/Users/don/AppDev/Projects/mapprj3/src/components/App.js",
+		"/Users/don/AppDev/Projects/mapprj3/src/misc/misc.js",
+		"/Users/don/AppDev/Projects/mapprj3/src/components/DataSelectComponent/DataSelect.js",
+		"/Users/don/AppDev/Projects/mapprj3/src/components/MapComponent/map.css",
+		"/Users/don/AppDev/Projects/mapprj3/src/components/MapComponent/countyNames.js",
+		"/Users/don/AppDev/Projects/mapprj3/src/components/MapComponent/countyNames.json",
+		"/Users/don/AppDev/Projects/mapprj3/src/actions/actions.js",
+		"/Users/don/AppDev/Projects/mapprj3/src/constants.js",
+		"/Users/don/AppDev/Projects/mapprj3/src/components/DataSelectComponent/urlcalc.js",
+		"/Users/don/AppDev/Projects/mapprj3/src/misc/customReducer.js",
+		"/Users/don/AppDev/Projects/mapprj3/src/misc/get_data.js",
+		"/Users/don/AppDev/Projects/mapprj3/Notes.txt",
+		"/Users/don/AppDev/Projects/mapprj3/src/index.js",
 		"/Users/don/AppDev/Projects/mapprj3/src/components/MapComponent/Map.js",
 		"/Users/don/AppDev/Projects/mapprj3/src/actions/index.js",
 		"/Users/don/AppDev/Projects/mapprj3/src/components/DataSelect.js",
@@ -660,8 +700,6 @@
 		"/Users/don/AppDev/Projects/mapprj3/README.md",
 		"/Users/don/AppDev/Projects/mapprj3/src/reducers/geo_levels.js",
 		"/Users/don/AppDev/Projects/mapprj3/src/components/App.css",
-		"/Users/don/AppDev/Projects/mapprj3/src/components/MapComponent/map.css",
-		"/Users/don/AppDev/Projects/mapprj3/src/constants.js",
 		"/Users/don/AppDev/Projects/mapprj3/public/index.html",
 		"/Users/don/AppDev/Projects/mapprj3/node_modules/leaflet/dist/leaflet-src.js",
 		"/Users/don/AppDev/Projects/mapprj3/node_modules/leaflet/src/control/Control.Layers.js",
@@ -766,20 +804,11 @@
 		"/Users/don/AppDev/Projects/writerprj/src/templates/snippets/contact_manager.html",
 		"/Users/don/AppDev/Projects/writerprj/lib/python3.5/site-packages/rest_framework/request.py",
 		"/Users/don/AppDev/Projects/writerprj/src/static/js/jquery.form.js",
-		"/Users/don/AppDev/Projects/writerprj/src/templates/snippets/modal_success_dlg.html",
-		"/Users/don/AppDev/Projects/writerprj/src/templates/snippets/comment_manager_success.html",
-		"/Users/don/AppDev/Projects/writerprj/src/static/js/utils.js",
-		"/Users/don/AppDev/src_examples/Django/Try-Django-1.8/src/templates/example_fluid.html",
-		"/Users/don/AppDev/Projects/writerprj/src/static/css/sidebar_ex.txt",
-		"/Users/don/AppDev/Projects/sidebar_ex.js",
-		"/Users/don/AppDev/Projects/sidebar_ex.css",
-		"/Users/don/AppDev/Projects/sidebar_ex.html",
-		"/Users/don/AppDev/Projects/writerprj/src/templates/contact.html",
-		"/Users/don/AppDev/Projects/writerprj/src/static/js/TweenMax.min.js"
+		"/Users/don/AppDev/Projects/writerprj/src/templates/snippets/modal_success_dlg.html"
 	],
 	"find":
 	{
-		"height": 39.0
+		"height": 26.0
 	},
 	"find_in_files":
 	{
@@ -794,6 +823,87 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"mapprj3",
+			"3001",
+			"mapprj3",
+			"3000",
+			"currenturl",
+			"figureouturl",
+			"requestremotedata",
+			"src2sel",
+			"data_src_census",
+			"setstate",
+			"react",
+			"console.log",
+			"this.geodata",
+			"loadlayerdata",
+			"onyearc",
+			"src2-drop",
+			"data_src2",
+			"componentwill",
+			"maxzo",
+			"customreducercounty",
+			"getindexkey",
+			"location",
+			"legendo",
+			"layerdata",
+			"setstate",
+			"datasrc",
+			"changelayervis",
+			"changevis",
+			"linear",
+			"legend",
+			"customre",
+			"this.state.layerdata",
+			"ourLayerGroup",
+			"clearData",
+			"mixed",
+			"loadlayerdata",
+			"layerdata",
+			"remove",
+			"drawlatest",
+			"L.control",
+			"layercont",
+			"data",
+			"topr",
+			"getcolor",
+			"countriesoneach",
+			"getcolor",
+			"winston",
+			"countynamelo",
+			"name",
+			"fips",
+			"countynamelookup",
+			"countries",
+			"countyNameLookup",
+			"counties",
+			"fipsstate",
+			"getindexkey",
+			"ColorBrewer",
+			"mapdata",
+			"L.",
+			"export ",
+			"counties",
+			"mapdata",
+			"loadlayerd",
+			"mapdata",
+			"TURNLAYERof",
+			"new zoom",
+			"this.setState(",
+			"counties:",
+			"visible",
+			"this.setstate",
+			"LOADLAYerda",
+			"layerdata",
+			"mapdata",
+			"oneachfe",
+			"drawlatestdata",
+			"changelayerv",
+			"ourlayergroup",
+			"layerdata",
+			"L.",
+			"ourlayergroup",
+			"layerdata",
 			"ourlayergroup",
 			"...state",
 			"errorstr",
@@ -840,16 +950,7 @@
 			"tilelayer",
 			"from 'redux'",
 			"leafletelement",
-			"sticky",
-			"this.props.posts",
-			"posts",
-			"provider",
-			"subscribe",
-			"connect",
-			"searchpost",
-			"updateposts",
-			"viewall",
-			"title"
+			"sticky"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -876,7 +977,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -885,15 +986,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7462,
+						"buffer_size": 11722,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7317,
-								7317
+								529,
+								529
 							]
 						],
 						"settings":
@@ -903,175 +1004,205 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1715.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "actions/actions.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5133,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1662,
-								1662
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 806.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "components/MapComponent/Map.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 24716,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2480,
-								2480
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 1.0,
-						"translation.y": 654.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "components/App.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7522,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								648,
-								648
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 552.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "components/DataSelectComponent/DataSelect.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4598,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1241,
-								1241
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2667.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "constants.js",
+					"buffer": 1,
+					"file": "misc/misc.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3235,
+						"buffer_size": 7944,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								555,
-								555
+								7553,
+								7561
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1266.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "components/DataSelectComponent/urlcalc.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8389,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5821,
+								5821
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 752.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "components/MapComponent/Map.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 39189,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								39189,
+								39189
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 13760.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "misc/get_data.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5723,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3569,
+								3569
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1312.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/Users/don/AppDev/Projects/mapprj3/README.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 169,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								81,
+								81
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "actions/actions.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4265,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2558,
+								2558
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2012.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "components/DataSelectComponent/urlcalc.js",
+					"buffer": 7,
+					"file": "constants.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1190,
+						"buffer_size": 4273,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1137,
-								1137
+								739,
+								752
 							]
 						],
 						"settings":
@@ -1084,7 +1215,68 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "components/DataSelectComponent/DataSelectSrc2.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3735,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								626,
+								626
+							]
+						],
+						"settings":
+						{
+							"auto_name": "var MySelect = React.createClass({",
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 357.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "components/DataSelectComponent/DataSelect.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7309,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								266,
+								266
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 871.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
 					"type": "text"
 				}
 			]
@@ -1092,7 +1284,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 25.0
+		"height": 26.0
 	},
 	"input":
 	{
@@ -1129,7 +1321,7 @@
 	"project": "mapprj3.sublime-project",
 	"replace":
 	{
-		"height": 70.0
+		"height": 48.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1167,7 +1359,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 192.0,
+	"side_bar_width": 183.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

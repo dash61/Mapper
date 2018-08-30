@@ -234,6 +234,7 @@ function reformatData(arr, useLog)
     return output;
 }
 
+// Various helper functions to show how to detect emptiness.
 function isEmpty1(a) {
     return (Object.keys(a).length === 0)
 }
