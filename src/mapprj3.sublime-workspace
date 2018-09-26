@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"cen",
+				"CENSUS_KEY2"
+			],
+			[
 				"req",
 				"requestData"
 			],
@@ -510,10 +514,6 @@
 			[
 				"Search",
 				"SearchBooksListView"
-			],
-			[
-				"A",
-				"AboutView"
 			]
 		]
 	},
@@ -523,16 +523,7 @@
 			"file": "reducers/reducers.js",
 			"settings":
 			{
-				"buffer_size": 11722,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "misc/misc.js",
-			"settings":
-			{
-				"buffer_size": 7944,
+				"buffer_size": 9585,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -541,52 +532,7 @@
 			"file": "components/DataSelectComponent/urlcalc.js",
 			"settings":
 			{
-				"buffer_size": 8389,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "components/MapComponent/Map.js",
-			"settings":
-			{
-				"buffer_size": 39189,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "misc/get_data.js",
-			"settings":
-			{
-				"buffer_size": 5723,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/don/AppDev/Projects/mapprj3/README.md",
-			"settings":
-			{
-				"buffer_size": 169,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "actions/actions.js",
-			"settings":
-			{
-				"buffer_size": 4265,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "constants.js",
-			"settings":
-			{
-				"buffer_size": 4273,
+				"buffer_size": 7806,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -595,17 +541,16 @@
 			"file": "components/DataSelectComponent/DataSelectSrc2.js",
 			"settings":
 			{
-				"buffer_size": 3735,
+				"buffer_size": 3799,
 				"encoding": "UTF-8",
-				"line_ending": "Unix",
-				"name": "var MySelect = React.createClass({"
+				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "components/DataSelectComponent/DataSelect.js",
+			"file": "components/MapComponent/Map.js",
 			"settings":
 			{
-				"buffer_size": 7309,
+				"buffer_size": 33415,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -666,30 +611,32 @@
 	[
 		"/Users/don/AppDev/Projects/mapprj3",
 		"/Users/don/AppDev/Projects/mapprj3/public",
-		"/Users/don/AppDev/Projects/mapprj3/scripts",
 		"/Users/don/AppDev/Projects/mapprj3/src",
-		"/Users/don/AppDev/Projects/mapprj3/src/actions",
-		"/Users/don/AppDev/Projects/mapprj3/src/components",
-		"/Users/don/AppDev/Projects/mapprj3/src/components/DataSelectComponent",
-		"/Users/don/AppDev/Projects/mapprj3/src/components/MapComponent",
-		"/Users/don/AppDev/Projects/mapprj3/src/misc",
-		"/Users/don/AppDev/Projects/mapprj3/src/reducers"
+		"/Users/don/AppDev/Projects/mapprj3/src/misc"
 	],
 	"file_history":
 	[
-		"/Users/don/AppDev/Projects/bls.py",
-		"/Users/don/AppDev/Projects/mapprj3/node_modules/leaflet-dvf/dist/leaflet-dvf.js",
+		"/Users/don/AppDev/Projects/mapprj3/package.json",
+		"/Users/don/AppDev/Projects/mapprj3/src/misc/get_data.js",
+		"/Users/don/AppDev/Projects/mapprj3/README.md",
 		"/Users/don/AppDev/Projects/mapprj3/src/components/App.js",
 		"/Users/don/AppDev/Projects/mapprj3/src/misc/misc.js",
+		"/Users/don/AppDev/Projects/mapprj3/src/keys.js",
 		"/Users/don/AppDev/Projects/mapprj3/src/components/DataSelectComponent/DataSelect.js",
+		"/Users/don/AppDev/Projects/mapprj3/src/actions/actions.js",
+		"/Users/don/AppDev/Projects/mapprj3/public/manifest.json",
+		"/Users/don/AppDev/Projects/mapprj3/LICENSE",
+		"/Users/don/AppDev/Projects/mapprj3/.gitignore",
+		"/Users/don/AppDev/Projects/mapprj3/.env.local",
+		"/Users/don/AppDev/Projects/mapprj3/src/constants.js",
+		"/Users/don/AppDev/Projects/mapprj3/src/components/DataSelectComponent/DataSelectSrc2.js",
+		"/Users/don/AppDev/Projects/bls.py",
+		"/Users/don/AppDev/Projects/mapprj3/node_modules/leaflet-dvf/dist/leaflet-dvf.js",
 		"/Users/don/AppDev/Projects/mapprj3/src/components/MapComponent/map.css",
 		"/Users/don/AppDev/Projects/mapprj3/src/components/MapComponent/countyNames.js",
 		"/Users/don/AppDev/Projects/mapprj3/src/components/MapComponent/countyNames.json",
-		"/Users/don/AppDev/Projects/mapprj3/src/actions/actions.js",
-		"/Users/don/AppDev/Projects/mapprj3/src/constants.js",
 		"/Users/don/AppDev/Projects/mapprj3/src/components/DataSelectComponent/urlcalc.js",
 		"/Users/don/AppDev/Projects/mapprj3/src/misc/customReducer.js",
-		"/Users/don/AppDev/Projects/mapprj3/src/misc/get_data.js",
 		"/Users/don/AppDev/Projects/mapprj3/Notes.txt",
 		"/Users/don/AppDev/Projects/mapprj3/src/index.js",
 		"/Users/don/AppDev/Projects/mapprj3/src/components/MapComponent/Map.js",
@@ -697,7 +644,6 @@
 		"/Users/don/AppDev/Projects/mapprj3/src/components/DataSelect.js",
 		"/Users/don/AppDev/Projects/mapprj3/src/reducers/urlcalc.js",
 		"/Users/don/AppDev/Projects/mapprj3/src/get_data.js",
-		"/Users/don/AppDev/Projects/mapprj3/README.md",
 		"/Users/don/AppDev/Projects/mapprj3/src/reducers/geo_levels.js",
 		"/Users/don/AppDev/Projects/mapprj3/src/components/App.css",
 		"/Users/don/AppDev/Projects/mapprj3/public/index.html",
@@ -705,8 +651,6 @@
 		"/Users/don/AppDev/Projects/mapprj3/node_modules/leaflet/src/control/Control.Layers.js",
 		"/Users/don/Documents/backup_my_docs",
 		"/Users/don/Documents/beep.sh",
-		"/Users/don/AppDev/Projects/mapprj3/package.json",
-		"/Users/don/AppDev/Projects/mapprj3/public/manifest.json",
 		"/Users/don/AppDev/Projects/mapprj3/package-lock.json",
 		"/Users/don/AppDev/Projects/mapprj2/app/index.js",
 		"/Users/don/AppDev/Projects/mapprj2/public/manifest.json",
@@ -799,16 +743,11 @@
 		"/Users/don/AppDev/Projects/writerprj/src/templates/snippets/form-snippet.html",
 		"/Users/don/AppDev/src_examples/Django/try-django-19/src/trydjango19/urls.py",
 		"/Users/don/AppDev/Projects/writerprj/src/writerhome/admin.py",
-		"/Users/don/AppDev/Projects/writerprj/src/writerhome/forms.py",
-		"/Users/don/AppDev/Projects/writerprj/src/templates/snippets/contact_manager_success.html",
-		"/Users/don/AppDev/Projects/writerprj/src/templates/snippets/contact_manager.html",
-		"/Users/don/AppDev/Projects/writerprj/lib/python3.5/site-packages/rest_framework/request.py",
-		"/Users/don/AppDev/Projects/writerprj/src/static/js/jquery.form.js",
-		"/Users/don/AppDev/Projects/writerprj/src/templates/snippets/modal_success_dlg.html"
+		"/Users/don/AppDev/Projects/writerprj/src/writerhome/forms.py"
 	],
 	"find":
 	{
-		"height": 26.0
+		"height": 39.0
 	},
 	"find_in_files":
 	{
@@ -823,6 +762,24 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"geoh",
+			"drl",
+			"registerserviceworker",
+			"logo.svg",
+			"highlightfeatures",
+			"countriesoneachfea",
+			"handlezooml",
+			"statesoneach",
+			"zoomtofea",
+			"setcountrystyle",
+			"tilelayer",
+			"accessToken",
+			"mapdata",
+			"posts",
+			"figureouturl",
+			"setstate",
+			"clonelayer",
+			"census_key",
 			"mapprj3",
 			"3001",
 			"mapprj3",
@@ -932,25 +889,7 @@
 			"AS",
 			"name\":",
 			"zindex",
-			"posts",
-			"Posts",
-			"endupdated",
-			"basemap",
-			"dataselector",
-			"onSelect",
-			"onClick",
-			"eventKey",
-			"MenuItem",
-			"index.css",
-			"button",
-			"leaflet-base-layers",
-			"preact",
-			"react-dom",
-			"map-component",
-			"tilelayer",
-			"from 'redux'",
-			"leafletelement",
-			"sticky"
+			"posts"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -986,15 +925,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 11722,
+						"buffer_size": 9585,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								529,
-								529
+								4818,
+								4818
 							]
 						],
 						"settings":
@@ -1004,27 +943,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2667.0,
+						"translation.y": 2610.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "misc/misc.js",
+					"file": "components/DataSelectComponent/urlcalc.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7944,
+						"buffer_size": 7806,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7553,
-								7561
+								648,
+								648
 							]
 						],
 						"settings":
@@ -1034,7 +973,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1266.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -1042,19 +981,19 @@
 				},
 				{
 					"buffer": 2,
-					"file": "components/DataSelectComponent/urlcalc.js",
+					"file": "components/DataSelectComponent/DataSelectSrc2.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8389,
+						"buffer_size": 3799,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5821,
-								5821
+								2292,
+								2292
 							]
 						],
 						"settings":
@@ -1064,10 +1003,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 752.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -1076,15 +1015,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 39189,
+						"buffer_size": 33415,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								39189,
-								39189
+								88,
+								88
 							]
 						],
 						"settings":
@@ -1094,189 +1033,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 13760.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "misc/get_data.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5723,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3569,
-								3569
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1312.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/Users/don/AppDev/Projects/mapprj3/README.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 169,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								81,
-								81
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "actions/actions.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4265,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2558,
-								2558
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2012.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "constants.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4273,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								739,
-								752
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "components/DataSelectComponent/DataSelectSrc2.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3735,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								626,
-								626
-							]
-						],
-						"settings":
-						{
-							"auto_name": "var MySelect = React.createClass({",
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 357.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "components/DataSelectComponent/DataSelect.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7309,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								266,
-								266
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 871.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
 					"type": "text"
 				}
 			]
@@ -1288,7 +1048,7 @@
 	},
 	"input":
 	{
-		"height": 37.0
+		"height": 38.0
 	},
 	"layout":
 	{

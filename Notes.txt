@@ -1,5 +1,6 @@
 Notes:
 
+
 Credit globe icon images (favicons) to:  Photo by Andrew Neel on Unsplash
 
 I set 2 env vars for debug:
