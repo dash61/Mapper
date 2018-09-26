@@ -17,7 +17,7 @@ import { DATA_SRC_CENSUS,
          DATA_SRC2_POPCOLL,
          DATA_SRC_BLS_EMPLOYMENT,
        } from '../../constants';
-import {CENSUS_KEY, BLS_KEY } from '../../keys'
+//import {CENSUS_KEY, BLS_KEY } from '../../keys'
 
 
 //const DATA_SRC_MISC_URL = 'http://catalog.data.gov/api/3/';
@@ -102,7 +102,8 @@ function figureOutURL (year, dataSrc, dataSrc2)
                          break;
 
                 }
-             finalURL = DATA_SRC_CENSUS_URL + year.toString() + middle + '&key=' + CENSUS_KEY;
+             finalURL = DATA_SRC_CENSUS_URL + year.toString() + middle + '&key=' +
+                process.env.REACT_APP_CENSUS_KEY;
              }
              break;
 
@@ -130,7 +131,7 @@ p = requests.post('https://api.bls.gov/publicAPI/v2/timeseries/data/', data=data
                      finalParams = {"seriesid": ['CUUR0000SA0','SUUR0000SA0'],
                                     "startyear": year.toString(),
                                     "endyear": yearEnd.toString()};//,
-                                    //"registrationkey": BLS_KEY};
+                                    //"registrationkey": process.env.REACT_APP_BLS_KEY};
                      break;
 
                 default:
@@ -157,7 +158,7 @@ export default figureOutURL;
 
 /*
 census  acs5 year
-        
+
 
 acs5 data variables:
 B01003_001E - Population
@@ -210,18 +211,3 @@ https://api.census.gov/data/2016/acs/acs1/profile?get=DP02_0001E&for=county:*&ke
 ...
 
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -12,7 +12,7 @@ import './map.css';
 import { geoType } from '../../constants.js';
 import { getNumericRangeOfArray, reformatData } from '../../misc/misc.js';
 import { RECEIVE_REMOTE_DATA, CLEAR_DATA, LOAD_DATA_FROM_CACHE } from '../../constants.js';
-import { MAP_ACCESS_TOKEN } from '../../keys';
+//import { MAP_ACCESS_TOKEN } from '../../keys';
 
 
 const NUM_LEGEND_SEGMENTS = 11;
@@ -34,7 +34,7 @@ config.tileLayer = {
     params: {
         //attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
         id: '',
-        accessToken: MAP_ACCESS_TOKEN,
+        accessToken: process.env.REACT_APP_MAP_ACCESS_TOKEN,
         noWrap: false,
         continuousWorld: false,
         bounds: [[-90, -180],[90, 180]] // keep from duplicating world map
@@ -111,14 +111,14 @@ export default class MyMap extends Component {
             e.target.bringToFront();
         }
     }
-    
+
     highlightFeatureCountry = (e) => {
         this.setCountryStyle (e.target, this.state.currentZoomLevel, true);
         if(!L.Browser.ie && !L.Browser.opera){
             e.target.bringToFront();
         }
     }
-    
+
     // This fn gets called once.
     setCountryStyle = (layer, zoom, highlightOn) =>
     {
@@ -191,7 +191,7 @@ export default class MyMap extends Component {
     }
 
     // This fn gets called once.
-    setCountyStyle = (layer, zoom, highlightOn) => 
+    setCountyStyle = (layer, zoom, highlightOn) =>
     {
         let newWeight = 1;
         let newColor = 'grey';
@@ -248,11 +248,11 @@ export default class MyMap extends Component {
         this.setStateStyle (e.target, this.state.currentZoomLevel, false);
         this.setCountyStyle (e.target, this.state.currentZoomLevel, false);
     }
-    
+
     resetHighlightCountry = (e) => {
         this.setCountryStyle (e.target, this.state.currentZoomLevel, false);
     }
-    
+
     zoomToFeature = (e) => {
         // pad fitBounds() so features aren't hidden under the Filter UI element
         var fitBoundsParams = {
@@ -376,7 +376,7 @@ export default class MyMap extends Component {
              //         ...{ layerOn: true }}}}}}; // works
 
                     this.setState(prevState => ({
-                        layerData: {...prevState.layerData, 
+                        layerData: {...prevState.layerData,
                             ...{ [key]: {...prevState.layerData[key],
                             ...{ visible: true }}}}}));
 
@@ -387,7 +387,7 @@ export default class MyMap extends Component {
                     //this.state.layerData[key].visible = false;
                     //this.setState({ layerData[key].visible: false });
                     this.setState(prevState => ({
-                        layerData: {...prevState.layerData, 
+                        layerData: {...prevState.layerData,
                             ...{ [key]: {...prevState.layerData[key],
                             ...{ visible: false }}}}}));
                 }
@@ -436,10 +436,10 @@ export default class MyMap extends Component {
             this.changeLayerVisibility ('EXTRA', false);
             this.turnLayerOff('extra');
 
-            var legendControl = new L.Control.Legend();            
+            var legendControl = new L.Control.Legend();
             legendControl.addTo(this.state.map);
 
-            // let legend = L.control({position: 'topright'});  
+            // let legend = L.control({position: 'topright'});
             // legend.onAdd = function (map)
             // {
             //     let div = L.DomUtil.create('div', 'info legend'),
@@ -460,7 +460,7 @@ export default class MyMap extends Component {
             //     return div;
             // };
             // legend.addTo(this.state.map);
-            
+
 
             let features = this.state.counties.features;
             let nameLookup = L.GeometryUtils.arrayToMap(this.state.countyNameLookup, 'FIPS');
@@ -498,7 +498,7 @@ export default class MyMap extends Component {
             // Specify an option of interpolate: false to use only discrete colors rather than interpolating between colors
             let fillColor = new L.CustomColorFunction(range[0], range[1],
                 L.ColorBrewer.Diverging.RdYlGn[NUM_LEGEND_SEGMENTS].slice(0).reverse(), { interpolate: false });
-            
+
             let color = new L.CustomColorFunction(range[0], range[1],
                 L.ColorBrewer.Diverging.RdYlGn[NUM_LEGEND_SEGMENTS].slice(0).reverse(), {
                 postProcess: function (y)
@@ -530,7 +530,7 @@ export default class MyMap extends Component {
                     iconAnchor: new L.Point(-5, 60)
                 },
                 legendOptions: {
-                    numSegments: NUM_LEGEND_SEGMENTS, 
+                    numSegments: NUM_LEGEND_SEGMENTS,
                     position: 'topright',
                     width: 400,
                     //lineHeight: '1.0',
@@ -552,17 +552,17 @@ export default class MyMap extends Component {
 
             // probably passing wrong data struct in 1st arg:
             let countyChoropleth = new L.ChoroplethDataLayer(reformattedArray, options); // old: countyStats
-            
+
             //let radius = new L.LinearFunction([range[0], 5], [range[1], 20]);
             // var symbolOptions = $.extend(true, {}, options);
-            
+
             // symbolOptions.layerOptions.gradient = true;
             // symbolOptions.displayOptions[field].radius = radius;
-            
+
             // var countySymbols = new L.DataLayer(countyStats, symbolOptions);
             // layerControl.addOverlay(countyChoropleth, 'Choropleth');
             // layerControl.addOverlay(countySymbols, 'Symbols');
-            
+
             this.state.map.addLayer(countyChoropleth);
 
             //statesLayer.setStyle(this.statesStyle);
@@ -796,7 +796,7 @@ export default class MyMap extends Component {
         else
         {
             this.state.map.getPane('statesPane').style.zIndex = 645;   // pop above countries pane
-            this.state.map.getPane('countiesPane').style.zIndex = 648; // pop above states pane            
+            this.state.map.getPane('countiesPane').style.zIndex = 648; // pop above states pane
         }
         //window.console.log ("handleZoomLevelChange - layerData = ", this.state.layerData);
         this.setStateStyle (this.state.layerData['STATE'].layerPtr, newZoomLevel, false);
@@ -807,7 +807,7 @@ export default class MyMap extends Component {
     render() {
         return (
             <div id='map-component'>
-                <Map 
+                <Map
                     ref={m => this._mapNode = m }
                     center={config.params.center}
                     zoom={config.params.zoom}

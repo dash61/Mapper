@@ -105,5 +105,8 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "devDependencies": {
+    "exports-loader": "^0.7.0"
   }
 }
