@@ -1,117 +1,125 @@
-import { DATA_SRC_CENSUS,
-         DATA_SRC_BLS,
-         DATA_SRC_MISC,
-         DATA_SRC2_TOTALPOP,
-         DATA_SRC2_POPWHITE,
-         DATA_SRC2_POPBLK,
-         DATA_SRC2_POPASIA,
-         DATA_SRC2_POPHISP,
-         DATA_SRC2_POPOTHER,
-         DATA_SRC2_POPMALE,
-         DATA_SRC2_POPFEM,
-         DATA_SRC2_POPLESSHI,
-         DATA_SRC2_POPHI,
-         DATA_SRC2_POPLESSCOLL,
-         DATA_SRC2_POPBACH,
-         DATA_SRC2_POPSCH,
-         DATA_SRC2_POPCOLL,
-         DATA_SRC_BLS_EMPLOYMENT,
-       } from '../../constants';
+import {
+  DATA_SRC_CENSUS,
+  DATA_SRC_BLS,
+  DATA_SRC_MISC,
+  DATA_SRC2_TOTALPOP,
+  DATA_SRC2_POPWHITE,
+  DATA_SRC2_POPBLK,
+  DATA_SRC2_POPASIA,
+  DATA_SRC2_POPHISP,
+  DATA_SRC2_POPOTHER,
+  DATA_SRC2_POPMALE,
+  DATA_SRC2_POPFEM,
+  DATA_SRC2_POPLESSHI,
+  DATA_SRC2_POPHI,
+  DATA_SRC2_POPLESSCOLL,
+  DATA_SRC2_POPBACH,
+  DATA_SRC2_POPSCH,
+  DATA_SRC2_POPCOLL,
+  DATA_SRC_BLS_EMPLOYMENT
+} from "../../constants";
 //import {CENSUS_KEY, BLS_KEY } from '../../keys'
-
 
 //const DATA_SRC_MISC_URL = 'http://catalog.data.gov/api/3/';
 
 // The state FIPS codes. Note that these are not just the numbers 1 thru 56, some are missing.
 //const STATES="01 02 04 05 06 08 09 10 11 12 13 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 44 45 46 47 48 49 50 51 53 54 55 56";
 
+function figureOutURL(year, dataSrc, dataSrc2) {
+  console.log(
+    "figureOutURL - passed year=",
+    year,
+    ", and data src=",
+    dataSrc,
+    ", and data src2=",
+    dataSrc2
+  );
+  //let statesArray = STATES.split(' ');
+  let finalURL = "";
+  let finalParams = {};
 
-function figureOutURL (year, dataSrc, dataSrc2)
-{
-    console.log("figureOutURL - passed year=", year, ", and data src=", dataSrc, ", and data src2=", dataSrc2);
-    //let statesArray = STATES.split(' ');
-    let finalURL = '';
-    let finalParams = {};
+  switch (dataSrc) {
+    case DATA_SRC_CENSUS: // old: for=tract:*&in=state:01&key=...
+      {
+        const DATA_SRC_CENSUS_URL = "https:/api.census.gov/data/"; // add 2010.json, eg
+        let middle = "";
 
-    switch (dataSrc)
-    {
-        case DATA_SRC_CENSUS:// old: for=tract:*&in=state:01&key=...
-             {
-                const DATA_SRC_CENSUS_URL = 'https:/api.census.gov/data/'; // add 2010.json, eg
-                let middle = '';
+        switch (dataSrc2) {
+          case DATA_SRC2_TOTALPOP:
+            middle = "/acs5?get=B01003_001E&for=county:*";
+            break;
 
-                switch (dataSrc2)
-                {
-                    case DATA_SRC2_TOTALPOP:
-                         middle = "/acs5?get=B01003_001E&for=county:*";
-                         break;
+          case DATA_SRC2_POPWHITE:
+            middle = "/acs5?get=B02001_002E&for=county:*";
+            break;
 
-                    case DATA_SRC2_POPWHITE:
-                         middle = "/acs5?get=B02001_002E&for=county:*";
-                         break;
+          case DATA_SRC2_POPBLK:
+            middle = "/acs5?get=B02001_003E&for=county:*";
+            break;
 
-                    case DATA_SRC2_POPBLK:
-                         middle = "/acs5?get=B02001_003E&for=county:*";
-                         break;
+          case DATA_SRC2_POPASIA:
+            middle = "/acs5?get=B02001_005E&for=county:*";
+            break;
 
-                    case DATA_SRC2_POPASIA:
-                         middle = "/acs5?get=B02001_005E&for=county:*";
-                         break;
+          case DATA_SRC2_POPHISP:
+            middle = "/acs5?get=B03003_003E&for=county:*";
+            break;
 
-                    case DATA_SRC2_POPHISP:
-                         middle = "/acs5?get=B03003_003E&for=county:*";
-                         break;
+          case DATA_SRC2_POPOTHER:
+            middle =
+              "/acs5?get=B02001_004E,B02001_006E,B02001_007E&for=county:*";
+            break;
 
-                    case DATA_SRC2_POPOTHER:
-                         middle = "/acs5?get=B02001_004E,B02001_006E,B02001_007E&for=county:*";
-                         break;
+          case DATA_SRC2_POPMALE:
+            middle = "/acs5?get=B01001_002E&for=county:*";
+            break;
 
-                    case DATA_SRC2_POPMALE:
-                         middle = "/acs5?get=B01001_002E&for=county:*";
-                         break;
+          case DATA_SRC2_POPFEM:
+            middle = "/acs5?get=B01001_026E&for=county:*";
+            break;
 
-                    case DATA_SRC2_POPFEM:
-                         middle = "/acs5?get=B01001_026E&for=county:*";
-                         break;
+          case DATA_SRC2_POPLESSHI:
+            middle = "/acs5?get=B23006_002E&for=county:*";
+            break;
 
-                    case DATA_SRC2_POPLESSHI:
-                         middle = "/acs5?get=B23006_002E&for=county:*";
-                         break;
+          case DATA_SRC2_POPHI:
+            middle = "/acs5?get=B23006_009E&for=county:*";
+            break;
 
-                    case DATA_SRC2_POPHI:
-                         middle = "/acs5?get=B23006_009E&for=county:*";
-                         break;
+          case DATA_SRC2_POPLESSCOLL:
+            middle = "/acs5?get=B23006_016E&for=county:*";
+            break;
 
-                    case DATA_SRC2_POPLESSCOLL:
-                         middle = "/acs5?get=B23006_016E&for=county:*";
-                         break;
+          case DATA_SRC2_POPBACH:
+            middle = "/acs5?get=B23006_023E&for=county:*";
+            break;
 
-                    case DATA_SRC2_POPBACH:
-                         middle = "/acs5?get=B23006_023E&for=county:*";
-                         break;
+          case DATA_SRC2_POPSCH:
+            middle = "/acs/acs1/profile?get=DP02_0052E&for=county:*";
+            break;
 
-                    case DATA_SRC2_POPSCH:
-                         middle = "/acs/acs1/profile?get=DP02_0052E&for=county:*";
-                         break;
+          case DATA_SRC2_POPCOLL:
+            middle = "/acs/acs1/profile?get=DP02_0057E&for=county:*";
+            break;
 
-                    case DATA_SRC2_POPCOLL:
-                         middle = "/acs/acs1/profile?get=DP02_0057E&for=county:*";
-                         break;
+          default:
+            break;
+        }
+        finalURL =
+          DATA_SRC_CENSUS_URL +
+          year.toString() +
+          middle +
+          "&key=" +
+          process.env.REACT_APP_CENSUS_KEY;
+      }
+      break;
 
-                    default:
-                         break;
-
-                }
-             finalURL = DATA_SRC_CENSUS_URL + year.toString() + middle + '&key=' +
-                process.env.REACT_APP_CENSUS_KEY;
-             }
-             break;
-
-        case DATA_SRC_BLS:
-             console.log("figureOutURL - got to bls datasrc");
-             const DATA_SRC_BLS_URL = 'https://api.bls.gov/publicAPI/v2/timeseries/data/'; //?registrationkey=';
-             finalURL = DATA_SRC_BLS_URL;
-             // LAST REGISTRATION WAS 12/22/2017.
+    case DATA_SRC_BLS:
+      console.log("figureOutURL - got to bls datasrc");
+      const DATA_SRC_BLS_URL =
+        "https://api.bls.gov/publicAPI/v2/timeseries/data/"; //?registrationkey=';
+      finalURL = DATA_SRC_BLS_URL;
+      // LAST REGISTRATION WAS 12/22/2017.
 
 /* Doesn't work:
 https://api.bls.gov/publicAPI/v2/timeseries/data/?registrationkey=f0a6af7e463a40618638b1384b8579ae&seriesid=SAS0800000000001&startyear=2015&endyear=2015
@@ -124,35 +132,35 @@ data = json.dumps({"seriesid": ['CUUR0000SA0','SUUR0000SA0'],"startyear":"2011",
 p = requests.post('https://api.bls.gov/publicAPI/v2/timeseries/data/', data=data, headers=headers)
 */
 
-             switch (dataSrc2)
-             {
-                case DATA_SRC2_TOTALPOP:
-                     const yearEnd = +year + 1;
-                     finalParams = {"seriesid": ['CUUR0000SA0','SUUR0000SA0'],
-                                    "startyear": year.toString(),
-                                    "endyear": yearEnd.toString()};//,
-                                    //"registrationkey": process.env.REACT_APP_BLS_KEY};
-                     break;
-
-                default:
-                     break;
-             }
-             break;
-
-        case DATA_SRC_MISC:
-             console.log("figureOutURL - got to unknown datasrc");
-             break;
+      switch (dataSrc2) {
+        case DATA_SRC2_TOTALPOP:
+          const yearEnd = +year + 1;
+          finalParams = {
+            seriesid: ["CUUR0000SA0", "SUUR0000SA0"],
+            startyear: year.toString(),
+            endyear: yearEnd.toString()
+          }; //,
+          //"registrationkey": process.env.REACT_APP_BLS_KEY};
+          break;
 
         default:
-             console.log("figureOutURL - got to default datasrc");
-             break;
-    }
-    console.log("figureOutURL - url =", finalURL);
-    console.log("figureOutURL - params =", finalParams);
+          break;
+      }
+      break;
 
-    return [finalURL, finalParams];
+    case DATA_SRC_MISC:
+      console.log("figureOutURL - got to unknown datasrc");
+      break;
+
+    default:
+      console.log("figureOutURL - got to default datasrc");
+      break;
+  }
+  console.log("figureOutURL - url =", finalURL);
+  console.log("figureOutURL - params =", finalParams);
+
+  return [finalURL, finalParams];
 }
-
 
 export default figureOutURL;
 

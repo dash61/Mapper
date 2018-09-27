@@ -1,54 +1,59 @@
 // Custom reducer master switching function.
 // This will determine which custom reducer below to use.
-function customReducer (oldArray)
-{
-    let firstRow = oldArray[0]; // firstRow is itself an array
-    let firstRowCols = firstRow.length;
-    let numDataRows = 0;
-    let numStateRows = 0;
-    let numCountyRows = 0;
-    let numSubCountyRows = 0;
+function customReducer(oldArray) {
+  let firstRow = oldArray[0]; // firstRow is itself an array
+  let firstRowCols = firstRow.length;
+  let numDataRows = 0;
+  let numStateRows = 0;
+  let numCountyRows = 0;
+  let numSubCountyRows = 0;
 
-    for (let i=0; i<firstRowCols; i++)
-    {
-        if (firstRow[i][0] ==="B" || firstRow[i][0] ==="D")
-        {
-            numDataRows++;
-        }
-        else if (firstRow[i] === "state")
-        {
-            numStateRows++;
-        }
-        else if (firstRow[i] === "county")
-        {
-            numCountyRows++;
-        }
-        else
-        {
-            numSubCountyRows++;
-        }
+  for (let i = 0; i < firstRowCols; i++) {
+    if (firstRow[i][0] === "B" || firstRow[i][0] === "D") {
+      numDataRows++;
+    } else if (firstRow[i] === "state") {
+      numStateRows++;
+    } else if (firstRow[i] === "county") {
+      numCountyRows++;
+    } else {
+      numSubCountyRows++;
     }
-    console.log(`customReducer - dataRows=${numDataRows}, states=${numStateRows}, counties=${numCountyRows}`);
+  }
+  console.log(
+    `customReducer - dataRows=${numDataRows}, states=${numStateRows}, counties=${numCountyRows}`
+  );
 
-    if (numDataRows === 1 && numStateRows === 1 && numCountyRows === 1 && numSubCountyRows === 0)
-    {
-        return oldArray.slice(1);
-    }
-    else if (numDataRows === 2 && numStateRows === 1 && numCountyRows === 1 && numSubCountyRows === 0)
-    {
-        return customReducer2DataSets(oldArray);
-    }
-    else if (numDataRows === 3 && numStateRows === 1 && numCountyRows === 1 && numSubCountyRows === 0)
-    {
-        return customReducer3DataSets(oldArray);
-    }
-    else if (numDataRows === 1 && numStateRows === 1 && numCountyRows === 1 && numSubCountyRows === 1)
-    {
-        return customReducerCounty(oldArray);
-    }
-    return oldArray; // fallback
+  if (
+    numDataRows === 1 &&
+    numStateRows === 1 &&
+    numCountyRows === 1 &&
+    numSubCountyRows === 0
+  ) {
+    return oldArray.slice(1);
+  } else if (
+    numDataRows === 2 &&
+    numStateRows === 1 &&
+    numCountyRows === 1 &&
+    numSubCountyRows === 0
+  ) {
+    return customReducer2DataSets(oldArray);
+  } else if (
+    numDataRows === 3 &&
+    numStateRows === 1 &&
+    numCountyRows === 1 &&
+    numSubCountyRows === 0
+  ) {
+    return customReducer3DataSets(oldArray);
+  } else if (
+    numDataRows === 1 &&
+    numStateRows === 1 &&
+    numCountyRows === 1 &&
+    numSubCountyRows === 1
+  ) {
+    return customReducerCounty(oldArray);
+  }
+  return oldArray; // fallback
 }
-
 
 // Custom reducer function.
 // Given an array of an array of strings, where one column represents numbers
@@ -75,47 +80,53 @@ function customReducer (oldArray)
 16: ["4537", "01", "003", "010400"]
 ...
 */
-function customReducerCounty (oldArray)
-{
-    // play with action.data here:
-    let newArray = [];
-    let lastState = "xx";
-    let lastCounty = "yy";
-    let accum = 0;
-    let newIteration = true;
+function customReducerCounty(oldArray) {
+  // play with action.data here:
+  let newArray = [];
+  let lastState = "xx";
+  let lastCounty = "yy";
+  let accum = 0;
+  let newIteration = true;
 
-    for (let i=1; i<oldArray.length; i++) // skip 0th elem, which is column labels
-    {
-        if (oldArray[i][1] !== lastState || oldArray[i][2] !== lastCounty)
-        {
-            newIteration = true;
-            lastState = oldArray[i][1];
-            lastCounty = oldArray[i][2];
-        }
-
-        if (newIteration)
-        {
-            // write out last iteration's results to newArray
-            if (accum > 0)
-            {
-                newArray.push([accum.toString(), oldArray[i-1][1], oldArray[i-1][2], oldArray[i-1][3]]);
-            }
-            accum = +oldArray[i][0]; // convert to number
-            newIteration = false;
-        }
-        else
-        {
-            accum += +oldArray[i][0]; // convert to number                    
-        }
-        // If we've processed the last row, we won't be looping around to find a new
-        // iteration, therefore we won't hit the newArray.push above.
-        if (i === oldArray.length-1)
-        {
-            newArray.push([accum.toString(), oldArray[i-1][1], oldArray[i-1][2], oldArray[i-1][3]]);
-        }
+  for (
+    let i = 1;
+    i < oldArray.length;
+    i++ // skip 0th elem, which is column labels
+  ) {
+    if (oldArray[i][1] !== lastState || oldArray[i][2] !== lastCounty) {
+      newIteration = true;
+      lastState = oldArray[i][1];
+      lastCounty = oldArray[i][2];
     }
-    //console.log("customReducerCounty - newArray=", newArray);
-    return newArray;
+
+    if (newIteration) {
+      // write out last iteration's results to newArray
+      if (accum > 0) {
+        newArray.push([
+          accum.toString(),
+          oldArray[i - 1][1],
+          oldArray[i - 1][2],
+          oldArray[i - 1][3]
+        ]);
+      }
+      accum = +oldArray[i][0]; // convert to number
+      newIteration = false;
+    } else {
+      accum += +oldArray[i][0]; // convert to number
+    }
+    // If we've processed the last row, we won't be looping around to find a new
+    // iteration, therefore we won't hit the newArray.push above.
+    if (i === oldArray.length - 1) {
+      newArray.push([
+        accum.toString(),
+        oldArray[i - 1][1],
+        oldArray[i - 1][2],
+        oldArray[i - 1][3]
+      ]);
+    }
+  }
+  //console.log("customReducerCounty - newArray=", newArray);
+  return newArray;
 }
 
 // Custom reducer function.
@@ -131,19 +142,21 @@ function customReducerCounty (oldArray)
 ["80","9","01","007"],
 ...
 */
-function customReducer2DataSets (oldArray)
-{
-    // play with action.data here:
-    let newArray = [];
-    let accum = 0;
+function customReducer2DataSets(oldArray) {
+  // play with action.data here:
+  let newArray = [];
+  let accum = 0;
 
-    for (let i=1; i<oldArray.length; i++) // skip 0th elem, which is column labels
-    {
-        accum = +oldArray[i][0] + +oldArray[i][1];
-        newArray.push([accum.toString(), oldArray[i][2], oldArray[i][3]]);
-    }
-    console.log("customReducer2DataSets - newArray=", newArray);
-    return newArray;
+  for (
+    let i = 1;
+    i < oldArray.length;
+    i++ // skip 0th elem, which is column labels
+  ) {
+    accum = +oldArray[i][0] + +oldArray[i][1];
+    newArray.push([accum.toString(), oldArray[i][2], oldArray[i][3]]);
+  }
+  console.log("customReducer2DataSets - newArray=", newArray);
+  return newArray;
 }
 
 // Custom reducer function.
@@ -159,40 +172,45 @@ function customReducer2DataSets (oldArray)
 ["80","0","9","01","007"],
 ...
 */
-function customReducer3DataSets (oldArray)
-{
-    // play with action.data here:
-    let newArray = [];
-    let accum = 0;
+function customReducer3DataSets(oldArray) {
+  // play with action.data here:
+  let newArray = [];
+  let accum = 0;
 
-    for (let i=1; i<oldArray.length; i++) // skip 0th elem, which is column labels
-    {
-        accum = +oldArray[i][0] + +oldArray[i][1] + +oldArray[i][2];
-        newArray.push([accum.toString(), oldArray[i][3], oldArray[i][4]]);
-    }
-    console.log("customReducer3DataSets - newArray=", newArray);
-    return newArray;
+  for (
+    let i = 1;
+    i < oldArray.length;
+    i++ // skip 0th elem, which is column labels
+  ) {
+    accum = +oldArray[i][0] + +oldArray[i][1] + +oldArray[i][2];
+    newArray.push([accum.toString(), oldArray[i][3], oldArray[i][4]]);
+  }
+  console.log("customReducer3DataSets - newArray=", newArray);
+  return newArray;
 }
 
 // Given an array of an array of strings, where one column represents numbers
 // that you want to get the range on, this function will check that column
 // and return an array of the min and max numeric values found (it converts
 // the strings to numbers just to check them).
-function getNumericRangeOfArray(arr, indexToCheck)
-{
-    let min = Number.MAX_VALUE;
-    let max = Number.MIN_VALUE;
-    window.console.log("getNumericRangeOfArray - input=", arr, ", indexToCheck=", indexToCheck);
+function getNumericRangeOfArray(arr, indexToCheck) {
+  let min = Number.MAX_VALUE;
+  let max = Number.MIN_VALUE;
+  window.console.log(
+    "getNumericRangeOfArray - input=",
+    arr,
+    ", indexToCheck=",
+    indexToCheck
+  );
 
-    for (let i=0; i<arr.length; i++)
-    {
-        min = Math.min(min, +arr[i][indexToCheck]);
-        max = Math.max(max, +arr[i][indexToCheck]);
-    }
-    return [min, max];
+  for (let i = 0; i < arr.length; i++) {
+    min = Math.min(min, +arr[i][indexToCheck]);
+    max = Math.max(max, +arr[i][indexToCheck]);
+  }
+  return [min, max];
 }
 
-/* Given an array like 
+/* Given an array like
 0: ["1948", "01", "001", "020100"],
 1: ["2156", "01", "002", "020200"],
 2: ["2968", "01", "003", "020300"],
@@ -217,43 +235,42 @@ Turn this into an array like:
     }
 ]
 */
-function reformatData(arr, useLog)
-{
-    let output = [];
+function reformatData(arr, useLog) {
+  let output = [];
 
-    for (let i=0; i<arr.length; i++)
-    {
-        let value = (useLog ? Math.log(+arr[i][0]) : +arr[i][0]);
-        let obj = {};
-        obj["FIPS"] = arr[i][1] + arr[i][2];
-        obj["Legend"] = (value === 0 ? 1 : value);
-        obj[""] = null;
-        output.push(obj); 
-    }
-    console.log("reformatData - newArray=", output);
-    return output;
+  for (let i = 0; i < arr.length; i++) {
+    let value = useLog ? Math.log(+arr[i][0]) : +arr[i][0];
+    let obj = {};
+    obj["FIPS"] = arr[i][1] + arr[i][2];
+    obj["Legend"] = value === 0 ? 1 : value;
+    obj[""] = null;
+    output.push(obj);
+  }
+  console.log("reformatData - newArray=", output);
+  return output;
 }
 
 // Various helper functions to show how to detect emptiness.
 function isEmpty1(a) {
-    return (Object.keys(a).length === 0)
+  return Object.keys(a).length === 0;
 }
 
 function isEmpty2(a) {
-    for (let x in a) { return false; }
-    return true;
+  for (let x in a) {
+    return false;
+  }
+  return true;
 }
 
 function isEmpty3(a) {
-    for (let x in a) { if (a.hasOwnProperty(x))  return false; }
-    return true;
+  for (let x in a) {
+    if (a.hasOwnProperty(x)) return false;
+  }
+  return true;
 }
 
 function isEmpty4(a) {
-    return ('{}' === JSON.stringify(a))
+  return "{}" === JSON.stringify(a);
 }
 
 export { customReducer, getNumericRangeOfArray, reformatData, isEmpty1 };
-
-
-

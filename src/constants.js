@@ -37,16 +37,16 @@ export const DATA_SRC_BLS_EMPLOYMENT = 'blsemployment';
 
 // Enum to hold the type of geographic data:
 export const geoType = {
-    COUNTY: 1,
-    STATE: 2,
-    COUNTRY: 3,
-    TERRITORY: 4,  // ie, owned by another country
-    TRACT: 5,
-    DISTRICT: 6,
-    TOWNSHIP: 7,
-    CITY: 8,
-    REGION: 9,
-    SUBREGION: 10
+  COUNTY: 1,
+  STATE: 2,
+  COUNTRY: 3,
+  TERRITORY: 4,  // ie, owned by another country
+  TRACT: 5,
+  DISTRICT: 6,
+  TOWNSHIP: 7,
+  CITY: 8,
+  REGION: 9,
+  SUBREGION: 10,
 };
 
 /*
@@ -81,7 +81,7 @@ It shows how to build the URL.
 The name may be meaningful, or an acronym, or an alphanum designation - B02001_001E.
 Some are required for a given data set.
 
-You can filter with predicates like "&for=state:*" (meaning all states). 
+You can filter with predicates like "&for=state:*" (meaning all states).
 
 I also downloaded the geoservices-rest-spec.pdf (v1.0), from esri.
 TigerWeb uses this. This doesn't seem specific to the govt, just a generic spec
