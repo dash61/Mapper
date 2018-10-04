@@ -46,52 +46,52 @@ function figureOutURL(year, dataSrc, dataSrc2) {
 
         switch (dataSrc2) {
           case DATA_SRC2_TOTALPOP:
-            middle = "/acs5?get=B01003_001E&for=county:*";
+            middle = "/acs/acs5?get=B01003_001E&for=county:*";
             break;
 
           case DATA_SRC2_POPWHITE:
-            middle = "/acs5?get=B02001_002E&for=county:*";
+            middle = "/acs/acs5?get=B02001_002E&for=county:*";
             break;
 
           case DATA_SRC2_POPBLK:
-            middle = "/acs5?get=B02001_003E&for=county:*";
+            middle = "/acs/acs5?get=B02001_003E&for=county:*";
             break;
 
           case DATA_SRC2_POPASIA:
-            middle = "/acs5?get=B02001_005E&for=county:*";
+            middle = "/acs/acs5?get=B02001_005E&for=county:*";
             break;
 
           case DATA_SRC2_POPHISP:
-            middle = "/acs5?get=B03003_003E&for=county:*";
+            middle = "/acs/acs5?get=B03003_003E&for=county:*";
             break;
 
           case DATA_SRC2_POPOTHER:
             middle =
-              "/acs5?get=B02001_004E,B02001_006E,B02001_007E&for=county:*";
+              "/acs/acs5?get=B02001_004E,B02001_006E,B02001_007E&for=county:*";
             break;
 
           case DATA_SRC2_POPMALE:
-            middle = "/acs5?get=B01001_002E&for=county:*";
+            middle = "/acs/acs5?get=B01001_002E&for=county:*";
             break;
 
           case DATA_SRC2_POPFEM:
-            middle = "/acs5?get=B01001_026E&for=county:*";
+            middle = "/acs/acs5?get=B01001_026E&for=county:*";
             break;
 
           case DATA_SRC2_POPLESSHI:
-            middle = "/acs5?get=B23006_002E&for=county:*";
+            middle = "/acs/acs5?get=B23006_002E&for=county:*";
             break;
 
           case DATA_SRC2_POPHI:
-            middle = "/acs5?get=B23006_009E&for=county:*";
+            middle = "/acs/acs5?get=B23006_009E&for=county:*";
             break;
 
           case DATA_SRC2_POPLESSCOLL:
-            middle = "/acs5?get=B23006_016E&for=county:*";
+            middle = "/acs/acs5?get=B23006_016E&for=county:*";
             break;
 
           case DATA_SRC2_POPBACH:
-            middle = "/acs5?get=B23006_023E&for=county:*";
+            middle = "/acs/acs5?get=B23006_023E&for=county:*";
             break;
 
           case DATA_SRC2_POPSCH:
@@ -120,17 +120,6 @@ function figureOutURL(year, dataSrc, dataSrc2) {
         "https://api.bls.gov/publicAPI/v2/timeseries/data/"; //?registrationkey=';
       finalURL = DATA_SRC_BLS_URL;
       // LAST REGISTRATION WAS 12/22/2017.
-
-/* Doesn't work:
-https://api.bls.gov/publicAPI/v2/timeseries/data/?registrationkey=f0a6af7e463a40618638b1384b8579ae&seriesid=SAS0800000000001&startyear=2015&endyear=2015
-https://api.bls.gov/publicAPI/v2/timeseries/data/?registrationkey=f0a6af7e463a40618638b1384b8579ae&catalog=true&startyear=2010&endyear=2014&calculations=true%20&annualaverage=true
-
-https://api.bls.gov/publicAPI/v2/timeseries/data/?&seriesid=SAS0800000000001&startyear=2015&endyear=2015&annualaverage=true&registrationkey=f0a6af7e463a40618638b1384b8579ae
-
-python examples:
-data = json.dumps({"seriesid": ['CUUR0000SA0','SUUR0000SA0'],"startyear":"2011", "endyear":"2014"})
-p = requests.post('https://api.bls.gov/publicAPI/v2/timeseries/data/', data=data, headers=headers)
-*/
 
       switch (dataSrc2) {
         case DATA_SRC2_TOTALPOP:

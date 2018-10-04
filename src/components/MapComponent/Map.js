@@ -3,9 +3,6 @@ import L from "leaflet";
 import "leaflet-dvf";
 import { basemapLayer } from "esri-leaflet"; // old: , tiledMapLayer
 import { Map } from "react-leaflet"; // old: , TileLayer
-import states from "./states2.json";
-import countries from "./countries3a.json";
-import counties from "./county2.json";
 import { countyNameLookup } from "./countyNames.js";
 import "../../../node_modules/leaflet/dist/leaflet.css";
 import "./map.css";
@@ -16,9 +13,11 @@ import {
   CLEAR_DATA,
   LOAD_DATA_FROM_CACHE
 } from "../../constants.js";
-//import { MAP_ACCESS_TOKEN } from '../../keys';
+import $ from 'jquery';
 
 const NUM_LEGEND_SEGMENTS = 10;
+
+// for large json data files, do: var data = JSON.parse(json_data);
 
 // store the map configuration properties in an object,
 // we could also move this to a separate file & import it if desired.
@@ -64,6 +63,7 @@ export default class MyMap extends Component {
       map: null,
       countries: null,
       states: null,
+      //states2: null,
       counties: null,
       countyNameLookup: null,
       ourLayerGroup: null,
@@ -254,6 +254,10 @@ export default class MyMap extends Component {
     //this.state.map.remove();
   };
 
+  // componentWillMount = () => {
+  //   console.log("cwm - entered");
+  // }
+
   // This gets called once *per county* when the county2.json file is loaded.
   countiesOnEachFeature = (feature, layer) => {
     //console.log ("countiesOnEachFeature enter; feature=", feature);
@@ -417,6 +421,21 @@ export default class MyMap extends Component {
 
     // create the Leaflet map object
     if (!this.state.map) this.init(this._mapNode);
+
+    let that = this;
+    $.getJSON("http://s3.amazonaws.com/drl-mapperfiles/countries3a.json", (data) => {
+      console.log("cdm1 - grabbed countries data");
+      that.setState({countries: data});
+    });
+    $.getJSON("http://s3.amazonaws.com/drl-mapperfiles/states2.json", (data) => {
+      console.log("cdm2 - grabbed states data");
+      that.setState({states: data});
+    });
+    $.getJSON("http://s3.amazonaws.com/drl-mapperfiles/county2.json", (data) => {
+      console.log("cdm3 - grabbed counties data");
+      that.setState({counties: data});
+    });
+
   };
 
   componentWillReceiveProps = nextprops => {
@@ -519,7 +538,7 @@ export default class MyMap extends Component {
         for (let i = 0; i < grades.length; i++) {
           from = Math.exp(grades[i]);
           to = Math.exp(grades[i + 1]) - 1;
-          from = (i==0 ? Math.floor(from) : Math.ceil(from));
+          from = (i===0 ? Math.floor(from) : Math.ceil(from));
           to = Math.ceil(to);
 
           labels.push(
@@ -683,6 +702,42 @@ export default class MyMap extends Component {
   // Create a L.layerGroup, then add all overlays you want visible to that group (.addLayer).
   // Remove them via removeLayer.
 
+  parse (file)
+  {
+    const reader = new FileReader();
+    console.log("file to read = " + file);
+    reader.readAsText(file);
+    const result = new Promise((resolve, reject) => {
+      reader.onload = function(event) {
+      resolve(reader.result)
+      }
+    })
+    //console.log(result)
+  }
+
+  readTextFile(file)
+  {
+    console.log("file to read = " + file);
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+      if(rawFile.readyState === 4)
+      {
+        if(rawFile.status === 200 || rawFile.status === 0)
+        {
+          console.log("readTextFile: "+JSON.stringify(rawFile));
+          console.log("readTextFile - read the file ok");
+          return rawFile.responseText;
+        }
+        else {
+          console.log("readTextFile - did NOT read the file");
+        }
+      }
+    }
+    rawFile.send(null);
+  }
+
   // - Use map.removeLayer(layerptr); to remove a layer.
   // - L.control.layers adds a control to the map so you can switch on/off layers manually:
   //   Could also create a control layers group and use that to control on/off of layers:
@@ -693,15 +748,37 @@ export default class MyMap extends Component {
     if (this.state.map) return;
     //console.log("init - id=", id, ", countries=", countries);
 
+    // console.log('Current window pathname: ' + window.location.pathname);
+    // console.log('Current doc pathname: ' + document.location.pathname);
+    // console.log('Current directory: ' + process.cwd());
+    // console.log('public url: ', process.env.REACT_APP_PUBLIC_URL);
+
     // this function creates the Leaflet map object and is called after the Map component mounts
     const leafletMap = id.leafletElement;
+
+    // let blob = this.readTextFile('file://data/county2.json');
+    // console.log("blob = "+JSON.stringify(blob));
+    // let fileData = this.parse(blob);
+    // let counties = JSON.parse(fileData);
+    //
+    // blob = this.readTextFile(process.env.REACT_APP_PUBLIC_URL + '/data/countries3a.json');
+    // fileData = this.parse(blob);
+    // let countries = JSON.parse(fileData);
+    //
+    // fileData = this.parse(process.env.PUBLIC_URL + '/data/states2.json');
+    // let states = JSON.parse(fileData);
+
+    //import states from "../../../data/states2.json";
+    //import countries from "../../../data/countries3a.json";;
+    //import counties from "../../../data/county2.json";
+
 
     // set our state to include the tile layer
     this.setState({ map: id.leafletElement }); // DON'T USE this.state.map BELOW; WON'T WORK!
     this.setState({
-      states: states,
-      countries: countries,
-      counties: counties,
+      // states: states,
+      // countries: countries,
+      // counties: counties,
       countyNameLookup: countyNameLookup
     });
 
@@ -747,7 +824,7 @@ export default class MyMap extends Component {
   componentDidUpdate(prevProps, prevState) {
     // code to run when the component receives new props or state
     // check to see if geojson is stored, map is created, and geojson overlay needs to be added
-
+    console.log("cdu - states = " + this.state.states);
     if (this.state.states && this.state.countries && this.state.counties) {
       //console.log ("componentDidUpdate - enter");
       // 1. Create a group layer object.

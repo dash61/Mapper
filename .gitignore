@@ -9,6 +9,9 @@
 # production
 /build
 
+# old stuff
+/old
+
 # misc
 .DS_Store
 keys.js
