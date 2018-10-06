@@ -41,7 +41,7 @@ function figureOutURL(year, dataSrc, dataSrc2) {
   switch (dataSrc) {
     case DATA_SRC_CENSUS: // old: for=tract:*&in=state:01&key=...
       {
-        const DATA_SRC_CENSUS_URL = "https:/api.census.gov/data/"; // add 2010.json, eg
+        const DATA_SRC_CENSUS_URL = "https://api.census.gov/data/"; // add 2010.json, eg
         let middle = "";
 
         switch (dataSrc2) {
