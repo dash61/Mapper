@@ -423,15 +423,15 @@ export default class MyMap extends Component {
     if (!this.state.map) this.init(this._mapNode);
 
     let that = this;
-    $.getJSON("http://s3.amazonaws.com/drl-mapperfiles/countries3a.json", (data) => {
+    $.getJSON("https://s3.amazonaws.com/drl-mapperfiles/countries3a.json", (data) => {
       console.log("cdm1 - grabbed countries data");
       that.setState({countries: data});
     });
-    $.getJSON("http://s3.amazonaws.com/drl-mapperfiles/states2.json", (data) => {
+    $.getJSON("https://s3.amazonaws.com/drl-mapperfiles/states2.json", (data) => {
       console.log("cdm2 - grabbed states data");
       that.setState({states: data});
     });
-    $.getJSON("http://s3.amazonaws.com/drl-mapperfiles/county2.json", (data) => {
+    $.getJSON("https://s3.amazonaws.com/drl-mapperfiles/county2.json", (data) => {
       console.log("cdm3 - grabbed counties data");
       that.setState({counties: data});
     });
