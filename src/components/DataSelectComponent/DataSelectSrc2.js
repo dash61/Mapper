@@ -26,7 +26,7 @@ import {
 var census_sources = [
   { name: DATA_SRC2_TOTALPOP, value: "Total Population" },
   { name: DATA_SRC2_POPWHITE, value: "Population - White Only" },
-  { name: DATA_SRC2_POPBLK, value: "Population - Black Only" },
+  { name: DATA_SRC2_POPBLK, value: "Population - African American Only" },
   { name: DATA_SRC2_POPASIA, value: "Population - Asian Only" },
   { name: DATA_SRC2_POPHISP, value: "Population - Hispanic Only" },
   { name: DATA_SRC2_POPOTHER, value: "Population - All Others" },
