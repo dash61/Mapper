@@ -1,4 +1,6 @@
 import React, { Component } from "react"; //'preact-compat';
+import { connect } from "react-redux"; //'preact-redux';
+import { doneLoadingJson } from "../../actions/actions.js"; // action creators
 import L from "leaflet";
 import "leaflet-dvf";
 import { basemapLayer } from "esri-leaflet"; // old: , tiledMapLayer
@@ -45,7 +47,7 @@ config.tileLayer = {
   }
 };
 
-export default class MyMap extends Component {
+class MyMap extends Component {
   constructor(props) {
     super(props);
     console.log("MyMap - props=", props); // loadLayerData is passed; call this to update the store (during init, and later)
@@ -57,6 +59,7 @@ export default class MyMap extends Component {
     this.turnLayerOn = turnLayerOn;
     this.turnLayerOff = turnLayerOff;
     this.legend = null;
+    this.localDoneLoading = false;
     this.state = {
       // NOT a US state
       currentZoomLevel: config.params.zoom,
@@ -416,25 +419,43 @@ export default class MyMap extends Component {
 
   componentDidMount = () => {
     // code to run just after the component "mounts" / DOM elements are created
-    // we could make an AJAX request for the GeoJSON data here if it wasn't stored locally
-    //this.getData();
 
     // create the Leaflet map object
     if (!this.state.map) this.init(this._mapNode);
 
     let that = this;
-    $.getJSON("https://s3.amazonaws.com/drl-mapperfiles/countries3a.json", (data) => {
-      console.log("cdm1 - grabbed countries data");
-      that.setState({countries: data});
-    });
-    $.getJSON("https://s3.amazonaws.com/drl-mapperfiles/states2.json", (data) => {
-      console.log("cdm2 - grabbed states data");
-      that.setState({states: data});
-    });
-    $.getJSON("https://s3.amazonaws.com/drl-mapperfiles/county2.json", (data) => {
-      console.log("cdm3 - grabbed counties data");
-      that.setState({counties: data});
-    });
+    $.when(
+      $.getJSON("https://s3.amazonaws.com/drl-mapperfiles/countries3a.json"),
+      $.getJSON("https://s3.amazonaws.com/drl-mapperfiles/states2.json"),
+      $.getJSON("https://s3.amazonaws.com/drl-mapperfiles/county2.json")
+    ).then(
+      (data, data2, data3) => {
+        that.setState({countries: data[0], states: data2[0], counties: data3[0]});
+        // that.setState({states: data2});
+        // that.setState({counties: data3});
+        console.log("cdm - received all 3 json files from S3");
+        this.localDoneLoading = true;
+        this.props.doneLoadingJson();
+      },
+      err => {
+        console.log(err);
+      }
+    );
+
+    // OLD WAY - GET EACH FILE ASYNCHRONOUSLY, BUT WE DON'T KNOW WHEN ALL
+    //           3 ARE DONE. USE THE ABOVE TO KNOW THAT AND TURN OFF SPINNER.
+    // $.getJSON("https://s3.amazonaws.com/drl-mapperfiles/countries3a.json", (data) => {
+    //   console.log("cdm1 - grabbed countries data");
+    //   that.setState({countries: data});
+    // });
+    // $.getJSON("https://s3.amazonaws.com/drl-mapperfiles/states2.json", (data) => {
+    //   console.log("cdm2 - grabbed states data");
+    //   that.setState({states: data});
+    // });
+    // $.getJSON("https://s3.amazonaws.com/drl-mapperfiles/county2.json", (data) => {
+    //   console.log("cdm3 - grabbed counties data");
+    //   that.setState({counties: data});
+    // });
 
   };
 
@@ -562,8 +583,8 @@ export default class MyMap extends Component {
         "FIPS"
       );
       //let nameLookup = this.arrayToMap(this.state.countyNameLookup, 'FIPS');
-      // console.log("CWRP - features=", features,
-      //   ", nameLookup=", nameLookup);
+      console.log("CWRP - features=", features,
+        ", nameLookup=", nameLookup); // drl debug only
 
       for (let i = 0; i < features.length; ++i) {
         //features[i].properties.FIPS = features[i].id.toString();
@@ -824,8 +845,10 @@ export default class MyMap extends Component {
   componentDidUpdate(prevProps, prevState) {
     // code to run when the component receives new props or state
     // check to see if geojson is stored, map is created, and geojson overlay needs to be added
-    console.log("cdu - states = " + this.state.states);
+    //console.log("cdu - states = " + this.state.states);
     if (this.state.states && this.state.countries && this.state.counties) {
+      //this.props.doneLoadingJson();
+
       //console.log ("componentDidUpdate - enter");
       // 1. Create a group layer object.
       // 2. Create a layer data structure for each layer.
@@ -945,6 +968,9 @@ export default class MyMap extends Component {
 
   // NOTE - country zindex is kept at 640.
   handleZoomLevelChange = newZoomLevel => {
+    if (!this.localDoneLoading)
+      return;
+
     this.setState({ currentZoomLevel: newZoomLevel });
     if (newZoomLevel <= 3) {
       this.state.map.getPane("statesPane").style.zIndex = 635; // pop below countries pane
@@ -988,3 +1014,25 @@ export default class MyMap extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    mapData: state
+  };
+}
+
+// pickYear etc below are all action creators imported above. These fns will be turned
+// into props properties, though wrapped in another function that calls dispatch, so that
+// invoking this.props.pickYear() will call dispatch to call that action on the reducer.
+// Notice the (App) at the end. This means the connect call returns a react
+// component class with all the internal wiring for redux, which then gets initialized
+// with the App class. So it is kind of like a mix-in.
+
+// Connect returns a component that links App to these new behaviors specified by the
+// args passed to it.
+export default connect(
+  mapStateToProps,
+  {
+    doneLoadingJson
+  }
+)(MyMap);

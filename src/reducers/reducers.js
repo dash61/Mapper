@@ -10,6 +10,7 @@ import {
     RECEIVE_REMOTE_DATA,
     LOAD_DATA_FROM_CACHE,
     CLEAR_DATA,
+    DONE_LOADING_JSON,
     DATA_SRC_CENSUS,
     DATA_SRC2_TOTALPOP
 } from '../constants';
@@ -119,7 +120,8 @@ const mainReducer = (
     errorStr: "",
     drawLatestData: false,
     layerData: {},
-    action: ""
+    action: "",
+    loading: true  // ie, loading initial json (borders) from S3
   },
   action
 ) => {
@@ -300,6 +302,13 @@ const mainReducer = (
           }
         }
       }; // works, amazing
+
+    case DONE_LOADING_JSON:
+      console.log("Reducer - TURN_LAYER_OFF called");
+      return {
+        ...state,
+        loading: false
+      };
 
     default:
       console.log("Reducer LayerData - default called");

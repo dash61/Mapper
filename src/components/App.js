@@ -11,11 +11,13 @@ import {
   loadLayerData,
   turnLayerOn,
   turnLayerOff,
-  fetchMapDataIfNeeded
+  fetchMapDataIfNeeded,
+  doneLoadingJson
 } from "../actions/actions.js"; // action creators
 import "./App.css";
 import MyMap from "./MapComponent/Map";
 import DataSelect from "./DataSelectComponent/DataSelect";
+import Spinner from './Spinner/spinner';
 
 class App extends Component {
   constructor(props) {
@@ -28,56 +30,56 @@ class App extends Component {
   }
 
   // Invoking one of these will call dispatch to call that action on the reducer.
-  local_pickDataSource = dataSource => {
-    console.log("App class - local_pickDataSource called");
-    this.props.pickDataSource(dataSource);
-  };
-
-  local_pickDataSource2 = dataSource => {
-    console.log("App class - local_pickDataSource2 called");
-    this.props.pickDataSource2(dataSource);
-  };
-
-  local_pickYear = (year) => {
-    console.log("App class - local_pickYear called, year=", year);
-    this.props.pickYear(year);
-  }
-
-  local_requestRemoteData = () => {
-    console.log("App class - local_requestRemoteData called");
-    // calc what layer this corresponds to
-    this.props.fetchMapDataIfNeeded();
-  }
-
-  local_errorRemoteData = (error) => {
-    console.log("App class - local_errorRemoteData called");
-    this.props.errorRemoteData(error);
-  }
-
-  local_receiveRemoteData = () => {
-    console.log("App class - local_receiveRemoteData called");
-    this.props.receiveRemoteData();
-  }
-
-  local_clearData = () => {
-    console.log("App class - local_clearData called");
-    this.props.clearData();
-  }
-
-  local_loadLayerData = (data, layerName) => {
-    console.log("App class - local_clearData called");
-    this.props.loadLayerData(data, layerName);
-  }
-
-  local_turnLayerOn = (layerName) => {
-    console.log("App class - local_turnLayerOn called");
-    this.props.turnLayerOn(layerName);
-  }
-
-  local_turnLayerOff = (layerName) => {
-    console.log("App class - local_turnLayerOff called");
-    this.props.turnLayerOff(layerName);
-  }
+  // props.pickDataSource = dataSource => {
+  //   console.log("App class - props.pickDataSource called");
+  //   this.props.pickDataSource(dataSource);
+  // };
+  //
+  // props.pickDataSource2 = dataSource => {
+  //   console.log("App class - props.pickDataSource2 called");
+  //   this.props.pickDataSource2(dataSource);
+  // };
+  //
+  // props.pickYear = (year) => {
+  //   console.log("App class - props.pickYear called, year=", year);
+  //   this.props.pickYear(year);
+  // }
+  //
+  // props.requestRemoteData = () => {
+  //   console.log("App class - props.requestRemoteData called");
+  //   // calc what layer this corresponds to
+  //   this.props.fetchMapDataIfNeeded();
+  // }
+  //
+  // props.errorRemoteData = (error) => {
+  //   console.log("App class - props.errorRemoteData called");
+  //   this.props.errorRemoteData(error);
+  // }
+  //
+  // props.receiveRemoteData = () => {
+  //   console.log("App class - props.receiveRemoteData called");
+  //   this.props.receiveRemoteData();
+  // }
+  //
+  // props.clearData = () => {
+  //   console.log("App class - props.clearData called");
+  //   this.props.clearData();
+  // }
+  //
+  // props.loadLayerData = (data, layerName) => {
+  //   console.log("App class - props.clearData called");
+  //   this.props.loadLayerData(data, layerName);
+  // }
+  //
+  // props.turnLayerOn = (layerName) => {
+  //   console.log("App class - props.turnLayerOn called");
+  //   this.props.turnLayerOn(layerName);
+  // }
+  //
+  // props.turnLayerOff = (layerName) => {
+  //   console.log("App class - props.turnLayerOff called");
+  //   this.props.turnLayerOff(layerName);
+  // }
 
   componentDidMount() {
     // fetch("https://jsonbin.io/b/59f721644ef213575c9f6531")
@@ -90,7 +92,7 @@ class App extends Component {
     //     url: "",
     //     dataSrc: DATA_SRC_CENSUS
     // };
-    // this.local_updatePosts(initialData);
+    // this.props.updatePosts(initialData);
     //});
     //const { dispatch, selectedSubreddit } = this.props;
     //dispatch (fetchMapDataIfNeeded (selectedSubreddit));
@@ -124,7 +126,25 @@ class App extends Component {
         height: "10px",
         width: "10px",
         paddingBottom: "2px"
-      }
+      },
+      spinnerDiv: {
+        backgroundColor: 'rgba(255, 255, 255, 0.95)',
+        borderRadius: '8px',
+        width: '30%',
+        height: '25%',
+        position: 'absolute',
+        left: '35%',
+        top: '25%',
+        zIndex: 1000,
+      },
+      spinnerText: {
+        top: '65%',
+        left: '32%',
+        position: 'absolute',
+      },
+      spinnerAlt: {
+        top: '40%',
+      },
     };
     return (
       <div className="App container">
@@ -133,11 +153,20 @@ class App extends Component {
         </header>
         <div className="row" style={styles.map}>
           <div className="col-sm-12 mapColumn">
+            { this.props.storeData.loading && (
+              <div style={styles.spinnerDiv}>
+                <Spinner barbackgroundcolor={'red'}
+                  style={styles.spinnerAlt}
+                />
+                <p style={styles.spinnerText}>Loading...</p>
+              </div>
+            )}
             <MyMap
-              loadLayerData={this.local_loadLayerData}
-              turnLayerOn={this.local_turnLayerOn}
-              turnLayerOff={this.local_turnLayerOff}
-              clearData={this.local_clearData}
+              loadLayerData={this.props.loadLayerData}
+              turnLayerOn={this.props.turnLayerOn}
+              turnLayerOff={this.props.turnLayerOff}
+              clearData={this.props.clearData}
+              doneLoadingJson={this.props.doneLoadingJson}
               mapData={this.props.storeData}
             />
           </div>
@@ -145,11 +174,11 @@ class App extends Component {
         <div className="row" style={styles.data}>
           <div className="col-sm-12 dataColumn">
             <DataSelect
-              onYearChange={this.local_pickYear}
-              onDataSrcChange={this.local_pickDataSource}
-              onDataSrc2Change={this.local_pickDataSource2}
-              onGoPressed={this.local_requestRemoteData}
-              onClearPressed={this.local_clearData}
+              onYearChange={this.props.pickYear}
+              onDataSrcChange={this.props.pickDataSource}
+              onDataSrc2Change={this.props.pickDataSource2}
+              onGoPressed={this.props.fetchMapDataIfNeeded}
+              onClearPressed={this.props.clearData}
               errorStr={this.props.storeData.errorStr}
             />
           </div>
@@ -196,6 +225,7 @@ export default connect(
     loadLayerData,
     turnLayerOn,
     turnLayerOff,
-    fetchMapDataIfNeeded
+    fetchMapDataIfNeeded,
+    doneLoadingJson
   }
 )(App);

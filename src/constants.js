@@ -10,6 +10,7 @@ export const REQUEST_REMOTE_DATA = 'REQUEST_REMOTE_DATA';
 export const ERROR_REMOTE_DATA = 'ERROR_REMOTE_DATA';
 export const RECEIVE_REMOTE_DATA = 'RECEIVE_REMOTE_DATA';
 export const LOAD_DATA_FROM_CACHE = 'LOAD_DATA_FROM_CACHE';
+export const DONE_LOADING_JSON = 'DONE_LOADING_JSON';
 
 export const DATA_SRC_CENSUS = 'census';
 export const DATA_SRC_BLS = 'bls';

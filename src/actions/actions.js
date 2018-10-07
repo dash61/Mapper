@@ -11,7 +11,8 @@ import {
   ERROR_REMOTE_DATA,
   RECEIVE_REMOTE_DATA,
   CLEAR_DATA,
-  LOAD_DATA_FROM_CACHE
+  LOAD_DATA_FROM_CACHE,
+  DONE_LOADING_JSON
 } from "../constants";
 
 // Action creators. Imported and called by components/App.js.
@@ -94,6 +95,12 @@ export const loadDataFromCache = overlayKey => {
     overlayKey
   };
 };
+
+export const doneLoadingJson = () => {
+  return {
+    type: DONE_LOADING_JSON
+  }
+}
 
 // Check cache; call with state.currentUrl.
 function isOverlayDataCached(state, urlHash) {
