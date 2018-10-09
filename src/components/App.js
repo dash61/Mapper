@@ -22,80 +22,7 @@ import Spinner from './Spinner/spinner';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      blah: 5
-    };
-    //const { outerObj } = this.props;
-    console.log("App ctor - props = ", props); // drl debug
-  }
-
-  // Invoking one of these will call dispatch to call that action on the reducer.
-  // props.pickDataSource = dataSource => {
-  //   console.log("App class - props.pickDataSource called");
-  //   this.props.pickDataSource(dataSource);
-  // };
-  //
-  // props.pickDataSource2 = dataSource => {
-  //   console.log("App class - props.pickDataSource2 called");
-  //   this.props.pickDataSource2(dataSource);
-  // };
-  //
-  // props.pickYear = (year) => {
-  //   console.log("App class - props.pickYear called, year=", year);
-  //   this.props.pickYear(year);
-  // }
-  //
-  // props.requestRemoteData = () => {
-  //   console.log("App class - props.requestRemoteData called");
-  //   // calc what layer this corresponds to
-  //   this.props.fetchMapDataIfNeeded();
-  // }
-  //
-  // props.errorRemoteData = (error) => {
-  //   console.log("App class - props.errorRemoteData called");
-  //   this.props.errorRemoteData(error);
-  // }
-  //
-  // props.receiveRemoteData = () => {
-  //   console.log("App class - props.receiveRemoteData called");
-  //   this.props.receiveRemoteData();
-  // }
-  //
-  // props.clearData = () => {
-  //   console.log("App class - props.clearData called");
-  //   this.props.clearData();
-  // }
-  //
-  // props.loadLayerData = (data, layerName) => {
-  //   console.log("App class - props.clearData called");
-  //   this.props.loadLayerData(data, layerName);
-  // }
-  //
-  // props.turnLayerOn = (layerName) => {
-  //   console.log("App class - props.turnLayerOn called");
-  //   this.props.turnLayerOn(layerName);
-  // }
-  //
-  // props.turnLayerOff = (layerName) => {
-  //   console.log("App class - props.turnLayerOff called");
-  //   this.props.turnLayerOff(layerName);
-  // }
-
-  componentDidMount() {
-    // fetch("https://jsonbin.io/b/59f721644ef213575c9f6531")
-    // .then( response => response.json())
-    // .then( data => {
-    // let initialData = {
-    //     data: [],
-    //     //selected: [],
-    //     year: 2015,
-    //     url: "",
-    //     dataSrc: DATA_SRC_CENSUS
-    // };
-    // this.props.updatePosts(initialData);
-    //});
-    //const { dispatch, selectedSubreddit } = this.props;
-    //dispatch (fetchMapDataIfNeeded (selectedSubreddit));
+    //console.log("App ctor - props = ", props);
   }
 
   render() {
@@ -138,9 +65,10 @@ class App extends Component {
         zIndex: 1000,
       },
       spinnerText: {
-        top: '65%',
-        left: '32%',
-        position: 'absolute',
+        top: '53%',
+        left: '0%', // old: 32
+        position: 'relative',
+        textAlign: 'center',
       },
       spinnerAlt: {
         top: '40%',
@@ -187,10 +115,6 @@ class App extends Component {
     );
   }
 }
-
-// Mini css - columns:
-// Use col-sm, or one of the variants: col-sm-1 (or 2 thru 12)
-// You can use instead: col-md-x or col-lg-x.
 
 // Notice this function is not part of the class above.
 // See docs for this fn and the connect fn below at:

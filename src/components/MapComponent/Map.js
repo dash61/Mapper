@@ -9,15 +9,16 @@ import { countyNameLookup } from "./countyNames.js";
 import "../../../node_modules/leaflet/dist/leaflet.css";
 import "./map.css";
 import { geoType } from "../../constants.js";
-import { getNumericRangeOfArray, reformatData } from "../../misc/misc.js";
+import { reformatData } from "../../misc/misc.js";
 import {
   RECEIVE_REMOTE_DATA,
   CLEAR_DATA,
   LOAD_DATA_FROM_CACHE
 } from "../../constants.js";
 import $ from 'jquery';
+import Legend from './legend';
 
-const NUM_LEGEND_SEGMENTS = 10;
+
 
 // for large json data files, do: var data = JSON.parse(json_data);
 
@@ -468,14 +469,12 @@ class MyMap extends Component {
       if (this.state.map && this.legend)
       {
         //console.log("CWRP - Removing legend");
-        this.state.map.removeControl(this.legend);
+        this.legend.removeLegend();
         this.legend = null;
       }
       //this.props.clearData ();
     }
 
-    // if (nextprops.mapData.drawLatestData && (nextprops.mapData.action === RECEIVE_REMOTE_DATA ||
-    //     nextprops.mapData.action === LOAD_DATA_FROM_CACHE))
     if (nextprops.mapData.action === RECEIVE_REMOTE_DATA ||
         nextprops.mapData.action === LOAD_DATA_FROM_CACHE)
     {
@@ -483,99 +482,18 @@ class MyMap extends Component {
 
       this.changeLayerVisibility("EXTRA", false);
       this.turnLayerOff("extra");
-      // if (this.legend)
-      //   console.log("CWRP - Legend=" + this.legend.toString());
       if (this.state.map && this.legend)
       {
         //console.log("CWRP - Removing legend");
-        this.state.map.removeControl(this.legend);
+        this.legend.removeLegend();
         this.legend = null;
       }
-
-      //var legendControl = new L.Control.Legend();
-      //var legendControl = L.Control.Legend();
-      //var legendControl = L.control({position: 'bottomright'});
-      //legendControl.addTo(this.state.map);
 
       //overlay = +nextprops.mapData.currentOverlay; // convert to number
       let dataPtr =
         nextprops.mapData.overlayData[nextprops.mapData.currentOverlay].data;
-      let field = "Legend";
-      let useLog = false;
-      let range = getNumericRangeOfArray(dataPtr, 0);
-      if (range[0] === 0) range[0] = 1;
-      //console.log("CWRP - range=", range);
-      let eachSegmentOfRange = (range[1] - range[0]) / NUM_LEGEND_SEGMENTS;
-      if (eachSegmentOfRange > 1000.0) {
-        useLog = true;
-        range[0] = Math.log(range[0]); // recalc ranges
-        range[1] = Math.log(range[1]);
-        eachSegmentOfRange = (range[1] - range[0]) / NUM_LEGEND_SEGMENTS;
-      }
-      console.log("CWRP - range=", range, ", useLog=", useLog, ", segmt=",
-        eachSegmentOfRange);
-
-      this.legend = L.control({ position: "topright" });
-      //console.log("CWRP - tempLegend=", tempLegend);
-      //this.setState ({legend: tempLegend});
-      //this.state.legend = L.control({ position: "topright" });
-
-      let colorArray = L.ColorBrewer.Diverging.RdYlGn[NUM_LEGEND_SEGMENTS].slice(0).reverse();
-
-      // taken from http://leafletjs.com/examples/choropleth/.
-      // Moving this function here made it work; ie, it is now in scope
-      // when the code below runs.
-      // function getColor(d, grades, colors) {
-      //   return d > grades[9] ? colors[9]:
-      //          d > grades[8] ? colors[8]:
-      //          d > grades[7] ? colors[7]:
-      //          d > grades[6] ? colors[6]:
-      //          d > grades[5] ? colors[5]:
-      //          d > grades[4] ? colors[4]:
-      //          d > grades[3] ? colors[3]:
-      //          d > grades[2] ? colors[2]:
-      //          d > grades[1] ? colors[1] : colors[0];
-      // }
-
-      function generateGradesArray(start, segRange, numSegments)
-      {
-        let result = [];
-        for (let i=0; i<numSegments; i++)
-        {
-          result.push(start + (segRange * (i+0)));
-        }
-        //console.log("grades = " + JSON.stringify(result));
-        return result;
-      }
-
-      this.legend.onAdd = function(map) {
-        //grades = [0, 10, 20, 50, 100, 200, 500, 1000],
-        let div = L.DomUtil.create("div", "info legend"),
-          grades = generateGradesArray(range[0], eachSegmentOfRange, NUM_LEGEND_SEGMENTS),
-          labels = [],//["<strong>LEGEND   </strong>"],
-          from,
-          to;
-
-        for (let i = 0; i < grades.length; i++) {
-          from = Math.exp(grades[i]);
-          to = Math.exp(grades[i + 1]) - 1;
-          from = (i===0 ? Math.floor(from) : Math.ceil(from));
-          to = Math.ceil(to);
-
-          labels.push(
-            '<i class="legend" style="background:' +
-              colorArray[i] +
-              '"></i> ' +
-              from +
-              (to ? "&ndash;" + to : "+")
-          );
-        }
-        //getColor(grades[i], grades, colorArray)
-        div.innerHTML = labels.join("<br>");
-        //div.innerHTML = labels;
-        return div;
-      };
-      this.legend.addTo(this.state.map);
+      this.legend = new Legend (this.state.map);
+      this.legend.init(dataPtr);
 
       let features = this.state.counties.features;
       let nameLookup = L.GeometryUtils.arrayToMap(
@@ -601,28 +519,8 @@ class MyMap extends Component {
         }
       }
 
-      //console.log("colorArray = " + JSON.stringify(colorArray));
-      // Specify an option of interpolate: false to use only discrete colors
-      // rather than interpolating between colors.
-      let fillColor = new L.CustomColorFunction(
-        range[0],
-        range[1],
-        colorArray,
-        { interpolate: false }
-      );
-
-      // let color = new L.CustomColorFunction(
-      //   range[0],
-      //   range[1],
-      //   L.ColorBrewer.Diverging.RdYlGn[NUM_LEGEND_SEGMENTS].slice(0).reverse(),
-      //   {
-      //     postProcess: function(y) {
-      //       let newColor = new L.RGBColor(y);
-      //       newColor.l(0.2);
-      //       return newColor.toRGBString();
-      //     }
-      //   }
-      // );
+      let fillColor = this.legend.getFillColor();
+      let useLog = this.legend.getUseLog();
 
       let options = {
         locationMode: L.LocationModes.LOOKUP,
@@ -646,19 +544,9 @@ class MyMap extends Component {
           iconSize: new L.Point(130, 60),
           iconAnchor: new L.Point(-5, 60)
         },
-        legendOptions: {
-          numSegments: NUM_LEGEND_SEGMENTS,
-          position: "topright",
-          width: 400,
-          //lineHeight: '1.0',
-          className: "leafLegend",
-          weight: 0.1,
-          //title: 'Population',
-          gradient: false // Use this option to specify whether or not a gradient will be used when displaying the legend
-        },
         displayOptions: {}
       };
-      options.displayOptions[field] = {
+      options.displayOptions["Legend"] = {
         fillColor: fillColor, // fillColor.minPoint = Point, has x and y
         //color: color // ditto
       };
