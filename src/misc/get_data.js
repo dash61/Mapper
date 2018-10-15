@@ -27,7 +27,10 @@ function getData(url, urlParams, dispatch) {
       method: "GET",
       header: {
         Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-Xss-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff"
       }
     });
 

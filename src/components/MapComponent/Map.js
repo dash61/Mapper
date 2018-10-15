@@ -624,28 +624,28 @@ class MyMap extends Component {
     //console.log(result)
   }
 
-  readTextFile(file)
-  {
-    console.log("file to read = " + file);
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", file, false);
-    rawFile.onreadystatechange = function ()
-    {
-      if(rawFile.readyState === 4)
-      {
-        if(rawFile.status === 200 || rawFile.status === 0)
-        {
-          console.log("readTextFile: "+JSON.stringify(rawFile));
-          console.log("readTextFile - read the file ok");
-          return rawFile.responseText;
-        }
-        else {
-          console.log("readTextFile - did NOT read the file");
-        }
-      }
-    }
-    rawFile.send(null);
-  }
+  // readTextFile(file)
+  // {
+  //   console.log("file to read = " + file);
+  //   var rawFile = new XMLHttpRequest();
+  //   rawFile.open("GET", file, false);
+  //   rawFile.onreadystatechange = function ()
+  //   {
+  //     if(rawFile.readyState === 4)
+  //     {
+  //       if(rawFile.status === 200 || rawFile.status === 0)
+  //       {
+  //         console.log("readTextFile: "+JSON.stringify(rawFile));
+  //         console.log("readTextFile - read the file ok");
+  //         return rawFile.responseText;
+  //       }
+  //       else {
+  //         console.log("readTextFile - did NOT read the file");
+  //       }
+  //     }
+  //   }
+  //   rawFile.send(null);
+  // }
 
   // - Use map.removeLayer(layerptr); to remove a layer.
   // - L.control.layers adds a control to the map so you can switch on/off layers manually:
@@ -892,7 +892,7 @@ class MyMap extends Component {
     return (
       <div id="map-component">
         <Map
-          ref={m => (this._mapNode = m)}
+          ref={m => (this._mapNode = m)} // in React, this is a 'callback ref'
           center={config.params.center}
           zoom={config.params.zoom}
           maxZoom={config.params.maxZoom}
