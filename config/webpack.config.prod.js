@@ -57,14 +57,6 @@ module.exports = {
   devtool: shouldUseSourceMap ? 'source-map' : false,
   // In production, we only want to load the polyfills and the app code.
   entry: [require.resolve('./polyfills'), paths.appIndexJs],
-  devServer: {
-    headers: {
-      'X-XSS-Protection': '1; mode=block',
-      'X-Content-Type-Options': 'nosniff',
-      'Referrer-Policy': 'no-referrer',
-      'X-Frame-Options': 'SAMEORIGIN'
-    }
-  },
   output: {
     // The build folder.
     path: paths.appBuild,

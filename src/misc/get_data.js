@@ -28,7 +28,7 @@ function getData(url, urlParams, dispatch) {
       header: {
         Accept: "application/json, text/plain, */*",
         "Content-Type": "application/json",
-        "X-Frame-Options": "SAMEORIGIN",
+        "X-Frame-Options": "SAMEORIGIN",  // I'm not sure if these 3 lines do anything helpful
         "X-Xss-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff"
       }
