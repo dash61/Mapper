@@ -10,21 +10,17 @@ export default class DataSelect extends Component {
         src1SelectValue: DATA_SRC_CENSUS,    // defaults
         // src2SelectValue: DATA_SRC2_TOTALPOP
     }
-    console.log("DataSelect - props=", props); // loadLayerData is passed; call this to update the store (during init, and later)
   }
   changeSrc = (value) => {
-    console.log("changeSrc - picked value=", value);
     this.setState({src1SelectValue: value});
     this.props.onDataSrcChange(value);
   };
   changeSrc2 = (value) => {
-    console.log("changeSrc2 - picked value=", value);
     // this.setState({src2SelectValue: value});
     this.props.onDataSrc2Change(value);
   };
   render() {
     //const { onYearChange, onDataSrcChange, onDataSrc2Change, onGoPressed, onClearPressed, errorStr } = this.props;
-    console.log("DataSelect - props=", this.props);
     const styles = {
       hr_style: {
         marginTop: "0px",

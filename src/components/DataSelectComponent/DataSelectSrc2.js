@@ -47,7 +47,6 @@ var bls_sources = [
 export default class MyDS2Select extends Component {
   constructor(props) {
     super(props);
-    //console.log("MyDS2Select - ctor - props=" + JSON.stringify(props));
     this.state = {
       options: [], // defaults
       src2SelectValue: DATA_SRC2_TOTALPOP,
@@ -61,7 +60,6 @@ export default class MyDS2Select extends Component {
     this.state.options = []; // clear old options array or get errors about duplicate keys
     switch (props.source) {
       case DATA_SRC_CENSUS:
-        console.log("DataSelectSrc2 - DATA_SRC_CENSUS");
         srcArray = census_sources;
         break;
       case DATA_SRC_BLS:
@@ -78,7 +76,6 @@ export default class MyDS2Select extends Component {
     }
     for (let i = 0; i < srcArray.length; i++) {
       let option = srcArray[i];
-      //console.log ('DSS2 - for loop - i=', i, ', option=', option);
       this.state.options.push(
         <option key={i} value={option.name}>
           {option.value}
@@ -86,10 +83,8 @@ export default class MyDS2Select extends Component {
       ); // must include 'key' or will get warning about it
     }
     this.forceUpdate(); // this compensates for not using setState on options
-    //console.log("DSS2 - fillOptions - options=", this.state.options);
   }
   componentWillReceiveProps(nextprops) {
-    //console.log("DSS2 - componentWillReceiveProps - nextprops=", nextprops);
     this.fillOptions(nextprops);
   }
   renderOptions = () => {

@@ -9,7 +9,6 @@ import "./spinner.css";
 class Spinner extends React.Component {
   constructor(props) {
     super(props);
-    //console.log("spinner - ctor - props = " + JSON.stringify(props));
   }
   render() {
     let bars = [];
@@ -24,7 +23,6 @@ class Spinner extends React.Component {
         'rotate(' + (i * 30) + 'deg) translate(166%)';
 
       barStyle.backgroundColor = props.barbackgroundcolor;
-      //console.log("spinner - bgnd color = " + barStyle.backgroundColor);
 
       barStyle.zIndex = 1000; // override default so it appears on top of map
       barStyle.width = '40%'; // override css file value so spinner is larger

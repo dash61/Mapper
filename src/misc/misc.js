@@ -19,9 +19,6 @@ function customReducer(oldArray) {
       numSubCountyRows++;
     }
   }
-  console.log(
-    `customReducer - dataRows=${numDataRows}, states=${numStateRows}, counties=${numCountyRows}`
-  );
 
   if (
     numDataRows === 1 &&
@@ -125,7 +122,6 @@ function customReducerCounty(oldArray) {
       ]);
     }
   }
-  //console.log("customReducerCounty - newArray=", newArray);
   return newArray;
 }
 
@@ -155,7 +151,6 @@ function customReducer2DataSets(oldArray) {
     accum = +oldArray[i][0] + +oldArray[i][1];
     newArray.push([accum.toString(), oldArray[i][2], oldArray[i][3]]);
   }
-  console.log("customReducer2DataSets - newArray=", newArray);
   return newArray;
 }
 
@@ -185,7 +180,6 @@ function customReducer3DataSets(oldArray) {
     accum = +oldArray[i][0] + +oldArray[i][1] + +oldArray[i][2];
     newArray.push([accum.toString(), oldArray[i][3], oldArray[i][4]]);
   }
-  console.log("customReducer3DataSets - newArray=", newArray);
   return newArray;
 }
 
@@ -196,12 +190,6 @@ function customReducer3DataSets(oldArray) {
 function getNumericRangeOfArray(arr, indexToCheck) {
   let min = Number.MAX_VALUE;
   let max = Number.MIN_VALUE;
-  window.console.log(
-    "getNumericRangeOfArray - input=",
-    arr,
-    ", indexToCheck=",
-    indexToCheck
-  );
 
   for (let i = 0; i < arr.length; i++) {
     min = Math.min(min, +arr[i][indexToCheck]);
@@ -246,7 +234,6 @@ function reformatData(arr, useLog) {
     obj[""] = null;
     output.push(obj);
   }
-  console.log("reformatData - newArray=", output);
   return output;
 }
 

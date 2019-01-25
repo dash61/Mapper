@@ -24,7 +24,6 @@ export const pickDataSource = dataSource => {
 };
 
 export const pickDataSource2 = dataSource => {
-  console.log("pickDataSource2 - dataSource=" + dataSource);
   return {
     type: PICK_DATA_SOURCE2,
     dataSource
@@ -39,14 +38,12 @@ export const pickYear = year => {
 };
 
 export const requestRemoteData = () => {
-  console.log("requestRemoteData - start");
   return {
     type: REQUEST_REMOTE_DATA
   };
 };
 
 export const errorRemoteData = error => {
-  console.log("errorRemoteData - start, error=", error);
   return {
     type: ERROR_REMOTE_DATA,
     error
@@ -54,7 +51,6 @@ export const errorRemoteData = error => {
 };
 
 export const receiveRemoteData = data => {
-  console.log("receiveRemoteData - start");
   return {
     type: RECEIVE_REMOTE_DATA,
     data
@@ -106,7 +102,6 @@ export const doneLoadingJson = () => {
 function isOverlayDataCached(state, urlHash) {
   if (state.overlayData) {
     // for safety
-    console.log("actions - isOverlayDataCached, state=", state);
     for (const [key, val] of Object.entries(state.overlayData)) {
       console.log(
         "actions - isOverlayDataCached, val.urlHash=" +
@@ -121,14 +116,9 @@ function isOverlayDataCached(state, urlHash) {
 }
 
 function fetchMapData(getState) {
-  console.log("actions - fetchMapData called, state=", getState());
   return dispatch => {
     dispatch(requestRemoteData());
     let state = getState();
-    console.log(
-      "actions - fetchMapData, after requestRemoteData, state=",
-      state
-    );
     getData(state.currentUrl, state.currentUrlParams, dispatch);
     return;
   };
@@ -149,20 +139,14 @@ function shouldFetchMapData(state) {
     state.currentUrlParams
   );
   if (!overlayKey) {
-    console.log("actions - shouldFetchMapData - key is blank, fetch map data");
+    // key is blank, fetch map data
     return true;
   } else {
-    console.log(
-      "actions - shouldFetchMapData - key is ",
-      overlayKey,
-      ", use cache"
-    );
     return false;
   }
 }
 
 export function fetchMapDataIfNeeded() {
-  console.log("actions - fetchMapDataIfNeeded called");
   return (dispatch, getState) => {
     if (shouldFetchMapData(getState())) {
       return dispatch(fetchMapData(getState));
@@ -171,7 +155,6 @@ export function fetchMapDataIfNeeded() {
       let hash = localState.currentUrl;
       // let hash =
       //   localState.currentUrl + JSON.stringify(localState.currentUrlParams);
-      console.log("fetchMapDataIfNeeded - url hash=", hash);
       for (const [key, val] of Object.entries(localState.overlayData)) {
         console.log(
           "actions - fetchMapDataIfNeeded, val.urlHash=" +

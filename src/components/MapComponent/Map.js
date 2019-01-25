@@ -19,9 +19,6 @@ import $ from 'jquery';
 import Legend from './legend';
 
 
-
-// for large json data files, do: var data = JSON.parse(json_data);
-
 // store the map configuration properties in an object,
 // we could also move this to a separate file & import it if desired.
 let config = {};
@@ -51,7 +48,6 @@ config.tileLayer = {
 class MyMap extends Component {
   constructor(props) {
     super(props);
-    console.log("MyMap - props=", props); // loadLayerData is passed; call this to update the store (during init, and later)
     const { loadLayerData, turnLayerOn, turnLayerOff } = props; // why is mapData not used?
     this._mapNode = null;
     this.markers = [];
@@ -62,12 +58,10 @@ class MyMap extends Component {
     this.legend = null;
     this.localDoneLoading = false;
     this.state = {
-      // NOT a US state
       currentZoomLevel: config.params.zoom,
       map: null,
       countries: null,
       states: null,
-      //states2: null,
       counties: null,
       countyNameLookup: null,
       ourLayerGroup: null,
@@ -80,40 +74,33 @@ class MyMap extends Component {
   // This fn is only called once, when the states layer is created.
   // This should match setCountyStyle when zoom=4, highlightOn=false.
   countiesStyle = () => {
-    // feature) {
     return {
       weight: 0.2,
       opacity: 0.0,
       color: "grey",
       dashArray: 4,
       fillOpacity: 0.0
-      //fillColor : 'white',
     };
   };
 
   // This fn is only called once, when the states layer is created.
   // This should match setStateStyle when zoom=4, highlightOn=false.
   statesStyle = () => {
-    // feature) {
     return {
       weight: 0.2,
-      //opacity : 1,
       color: "grey",
       dashArray: 4,
       fillOpacity: 0.0
-      //fillColor : 'white',
     };
   };
 
   // This fn is only called once, when the countries layer is created.
   countriesStyle = () => {
-    // feature) {
     return {
       weight: 0.4,
       opacity: 0.7,
       color: "grey",
       fillOpacity: 0.0
-      //fillColor : 'white',
     };
   };
 
@@ -194,7 +181,6 @@ class MyMap extends Component {
     let newColor = "grey";
     let newFillOpacity = 0.0;
     let newOpacity = 0.7;
-    //let marker = null;
 
     if (zoom > 8) {
       newWeight = 0.2;
@@ -206,7 +192,7 @@ class MyMap extends Component {
       // one when you are at a sufficient zoom level and w/in the bounds + some distance.
       //
       // const name = layer.feature.properties.name; // THIS DOESN'T WORK
-      // marker = new L.marker(layer.getBounds().getCenter(), { opacity: 0.01 }); //opacity may be set to zero
+      // let marker = new L.marker(layer.getBounds().getCenter(), { opacity: 0.01 }); //opacity may be set to zero
       // marker.bindTooltip("County", {permanent: true, className: "my-label", offset: [0, 0] });
       // marker.addTo(this.state.map);
     } else if (zoom >= 7) {
@@ -252,19 +238,8 @@ class MyMap extends Component {
     this.state.map.fitBounds(e.target.getBounds(), fitBoundsParams);
   };
 
-  componentWillUnmount = () => {
-    // code to run just before unmounting the component
-    // this destroys the Leaflet map object & related event listeners
-    //this.state.map.remove();
-  };
-
-  // componentWillMount = () => {
-  //   console.log("cwm - entered");
-  // }
-
   // This gets called once *per county* when the county2.json file is loaded.
   countiesOnEachFeature = (feature, layer) => {
-    //console.log ("countiesOnEachFeature enter; feature=", feature);
     let tempObj = {};
     tempObj.name = feature.properties.NAME;
     tempObj.fips = feature.properties.COUNTYFP; // 3 chars
@@ -280,7 +255,6 @@ class MyMap extends Component {
 
   // This gets called once *per state* when the states2.json file is loaded.
   statesOnEachFeature = (feature, layer) => {
-    //console.log("Inside the statesOnEachFeature function!!!!!!!!!!!!");
     //this.markers.push(
     //    L.circleMarker(
     //        layer.getBounds().getCenter(),
@@ -292,7 +266,6 @@ class MyMap extends Component {
     //    )
     //);
     //var markersCount = this.markers.length;
-    //console.log("Num markers = " + markersCount);
     //this.markers[markersCount - 1].bindTooltip(
     //    feature.properties.name,
     //    {
@@ -323,8 +296,6 @@ class MyMap extends Component {
 
   // This gets called once *per country* when the countries3a.json file is loaded.
   countriesOnEachFeature = (feature, layer) => {
-    // if (feature.properties.NAME == 'Aruba')
-    //     console.log ("countriesOnEachFeature enter; feature=", feature);
     let tempObj = {};
     tempObj.name = feature.properties.NAME;
     tempObj.fips = feature.properties.FIPS_10_; // 2 chars
@@ -434,7 +405,6 @@ class MyMap extends Component {
         that.setState({countries: data[0], states: data2[0], counties: data3[0]});
         // that.setState({states: data2});
         // that.setState({counties: data3});
-        console.log("cdm - received all 3 json files from S3");
         this.localDoneLoading = true;
         this.props.doneLoadingJson();
       },
@@ -442,33 +412,14 @@ class MyMap extends Component {
         console.log(err);
       }
     );
-
-    // OLD WAY - GET EACH FILE ASYNCHRONOUSLY, BUT WE DON'T KNOW WHEN ALL
-    //           3 ARE DONE. USE THE ABOVE TO KNOW THAT AND TURN OFF SPINNER.
-    // $.getJSON("https://s3.amazonaws.com/drl-mapperfiles/countries3a.json", (data) => {
-    //   console.log("cdm1 - grabbed countries data");
-    //   that.setState({countries: data});
-    // });
-    // $.getJSON("https://s3.amazonaws.com/drl-mapperfiles/states2.json", (data) => {
-    //   console.log("cdm2 - grabbed states data");
-    //   that.setState({states: data});
-    // });
-    // $.getJSON("https://s3.amazonaws.com/drl-mapperfiles/county2.json", (data) => {
-    //   console.log("cdm3 - grabbed counties data");
-    //   that.setState({counties: data});
-    // });
-
   };
 
   componentWillReceiveProps = nextprops => {
-    console.log("CWRP - action=", nextprops.mapData.action);
-
     if (nextprops.mapData.action === CLEAR_DATA) {
       this.changeLayerVisibility("EXTRA", false);
       this.turnLayerOff("extra");
       if (this.state.map && this.legend)
       {
-        //console.log("CWRP - Removing legend");
         this.legend.removeLegend();
         this.legend = null;
       }
@@ -478,13 +429,10 @@ class MyMap extends Component {
     if (nextprops.mapData.action === RECEIVE_REMOTE_DATA ||
         nextprops.mapData.action === LOAD_DATA_FROM_CACHE)
     {
-      console.log("CWRP - going to draw new data, props=", nextprops);
-
       this.changeLayerVisibility("EXTRA", false);
       this.turnLayerOff("extra");
       if (this.state.map && this.legend)
       {
-        //console.log("CWRP - Removing legend");
         this.legend.removeLegend();
         this.legend = null;
       }
@@ -501,8 +449,6 @@ class MyMap extends Component {
         "FIPS"
       );
       //let nameLookup = this.arrayToMap(this.state.countyNameLookup, 'FIPS');
-      console.log("CWRP - features=", features,
-        ", nameLookup=", nameLookup); // drl debug only
 
       for (let i = 0; i < features.length; ++i) {
         //features[i].properties.FIPS = features[i].id.toString();
@@ -550,26 +496,14 @@ class MyMap extends Component {
         fillColor: fillColor, // fillColor.minPoint = Point, has x and y
         //color: color // ditto
       };
-      console.log("CWRP - options=", options);
 
       let reformattedArray = reformatData(dataPtr, useLog);
-      //console.log("CWRP - hasOwnProperty FIPS=", reformattedArray.hasOwnProperty("FIPS"));
 
       // probably passing wrong data struct in 1st arg:
       let countyChoropleth = new L.ChoroplethDataLayer(
         reformattedArray,
         options
       ); // old: countyStats
-
-      //let radius = new L.LinearFunction([range[0], 5], [range[1], 20]);
-      // var symbolOptions = $.extend(true, {}, options);
-
-      // symbolOptions.layerOptions.gradient = true;
-      // symbolOptions.displayOptions[field].radius = radius;
-
-      // var countySymbols = new L.DataLayer(countyStats, symbolOptions);
-      // layerControl.addOverlay(countyChoropleth, 'Choropleth');
-      // layerControl.addOverlay(countySymbols, 'Symbols');
 
       this.state.map.addLayer(countyChoropleth);
 
@@ -596,9 +530,6 @@ class MyMap extends Component {
       //     layerOn: true,
       //     gType: geoType.STATE
       // };
-      // TO clear an array: a = []; OR: a.splice(0, a.length); OR: a.length = 0;
-      //this.geoData.splice(0, this.geoData.length); // empty array
-      //this.geoData.length = 0;
       this.loadLayerData(this.state.layerData["EXTRA"], "extra");
     }
   };
@@ -614,38 +545,13 @@ class MyMap extends Component {
   parse (file)
   {
     const reader = new FileReader();
-    console.log("file to read = " + file);
     reader.readAsText(file);
     const result = new Promise((resolve, reject) => {
       reader.onload = function(event) {
       resolve(reader.result)
       }
     })
-    //console.log(result)
   }
-
-  // readTextFile(file)
-  // {
-  //   console.log("file to read = " + file);
-  //   var rawFile = new XMLHttpRequest();
-  //   rawFile.open("GET", file, false);
-  //   rawFile.onreadystatechange = function ()
-  //   {
-  //     if(rawFile.readyState === 4)
-  //     {
-  //       if(rawFile.status === 200 || rawFile.status === 0)
-  //       {
-  //         console.log("readTextFile: "+JSON.stringify(rawFile));
-  //         console.log("readTextFile - read the file ok");
-  //         return rawFile.responseText;
-  //       }
-  //       else {
-  //         console.log("readTextFile - did NOT read the file");
-  //       }
-  //     }
-  //   }
-  //   rawFile.send(null);
-  // }
 
   // - Use map.removeLayer(layerptr); to remove a layer.
   // - L.control.layers adds a control to the map so you can switch on/off layers manually:
@@ -655,32 +561,9 @@ class MyMap extends Component {
   //   controlLayers.addOverlay(geojsonLayer, 'name of it');
   init(id) {
     if (this.state.map) return;
-    //console.log("init - id=", id, ", countries=", countries);
-
-    // console.log('Current window pathname: ' + window.location.pathname);
-    // console.log('Current doc pathname: ' + document.location.pathname);
-    // console.log('Current directory: ' + process.cwd());
-    // console.log('public url: ', process.env.REACT_APP_PUBLIC_URL);
 
     // this function creates the Leaflet map object and is called after the Map component mounts
     const leafletMap = id.leafletElement;
-
-    // let blob = this.readTextFile('file://data/county2.json');
-    // console.log("blob = "+JSON.stringify(blob));
-    // let fileData = this.parse(blob);
-    // let counties = JSON.parse(fileData);
-    //
-    // blob = this.readTextFile(process.env.REACT_APP_PUBLIC_URL + '/data/countries3a.json');
-    // fileData = this.parse(blob);
-    // let countries = JSON.parse(fileData);
-    //
-    // fileData = this.parse(process.env.PUBLIC_URL + '/data/states2.json');
-    // let states = JSON.parse(fileData);
-
-    //import states from "../../../data/states2.json";
-    //import countries from "../../../data/countries3a.json";;
-    //import counties from "../../../data/county2.json";
-
 
     // set our state to include the tile layer
     this.setState({ map: id.leafletElement }); // DON'T USE this.state.map BELOW; WON'T WORK!
@@ -710,8 +593,6 @@ class MyMap extends Component {
     leafletMap.on("zoomend", e => {
       const updatedZoomLevel = leafletMap.getZoom();
       this.handleZoomLevelChange(updatedZoomLevel);
-      //console.log("new zoom is ", updatedZoomLevel, ", local state=", this.state);
-      //console.log("new zoom is ", updatedZoomLevel, ", store state=", this.props.mapData);
       if (updatedZoomLevel > 5) {
         if (!this.state.visible) {
           for (let i = 0; i < this.markers.length; i++) {
@@ -733,18 +614,15 @@ class MyMap extends Component {
   componentDidUpdate(prevProps, prevState) {
     // code to run when the component receives new props or state
     // check to see if geojson is stored, map is created, and geojson overlay needs to be added
-    //console.log("cdu - states = " + this.state.states);
     if (this.state.states && this.state.countries && this.state.counties) {
       //this.props.doneLoadingJson();
 
-      //console.log ("componentDidUpdate - enter");
       // 1. Create a group layer object.
       // 2. Create a layer data structure for each layer.
       // 3. Add each layer to the group.
       // 4. Add group to map.
       // Now you can independently add/remove layers from group and they will add/remove from map.
       if (this.state.map && !this.state.ourLayerGroup) {
-        //console.log ("componentDidUpdate - ourLayerGroup =", this.state.ourLayerGroup);
         //return;
 
         const ourLayerGroup = L.layerGroup(); // 1. Create a group layer object.
@@ -817,13 +695,8 @@ class MyMap extends Component {
         //this.turnLayerOff('country'); // JUST A TEST!!!!!!!!!!!!!!
 
         this.setState({ layerData: layerData });
-        console.log("componentDidUpdate - layerData =", layerData);
 
         ourLayerGroup.addTo(this.state.map); // add entire group to map
-        console.log("componentDidUpdate - local state =", this.state);
-
-        // TODO - *TRY* LATER - CLEAR OUT ORIGINAL this.states, this.countries, this.counties
-        // objects; data should already be in the layers now
 
         var esriNatGeo = basemapLayer(
           "NationalGeographic",
@@ -870,7 +743,6 @@ class MyMap extends Component {
       this.state.map.getPane("statesPane").style.zIndex = 645; // pop above countries pane
       this.state.map.getPane("countiesPane").style.zIndex = 648; // pop above states pane
     }
-    //console.log ("handleZoomLevelChange - layerData = ", this.state.layerData);
     this.setStateStyle(
       this.state.layerData["STATE"].layerPtr,
       newZoomLevel,

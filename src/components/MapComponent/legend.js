@@ -25,7 +25,6 @@ export default class Legend {
 
     let range = getNumericRangeOfArray(dataPtr, 0);
     if (range[0] === 0) range[0] = 1;
-    //console.log("CWRP - range=", range);
     let eachSegmentOfRange = (range[1] - range[0]) / NUM_LEGEND_SEGMENTS;
     if (eachSegmentOfRange > 1000.0) {
       this.useLog = true;
@@ -33,8 +32,6 @@ export default class Legend {
       range[1] = Math.log(range[1]);
       eachSegmentOfRange = (range[1] - range[0]) / NUM_LEGEND_SEGMENTS;
     }
-    console.log("legend.init - range=", range, ", useLog=", this.useLog, ", segmt=",
-      eachSegmentOfRange);
 
     let colorArray = L.ColorBrewer.Diverging.RdYlGn[NUM_LEGEND_SEGMENTS].slice(0).reverse();
 
@@ -54,7 +51,6 @@ export default class Legend {
       {
         result.push(start + (segRange * (i+0)));
       }
-      //console.log("grades = " + JSON.stringify(result));
       return result;
     }
 

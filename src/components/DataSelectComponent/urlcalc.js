@@ -18,7 +18,6 @@ import {
   DATA_SRC2_POPCOLL,
   DATA_SRC_BLS_EMPLOYMENT
 } from "../../constants";
-//import {CENSUS_KEY, BLS_KEY } from '../../keys'
 
 //const DATA_SRC_MISC_URL = 'http://catalog.data.gov/api/3/';
 
@@ -26,15 +25,14 @@ import {
 //const STATES="01 02 04 05 06 08 09 10 11 12 13 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 44 45 46 47 48 49 50 51 53 54 55 56";
 
 function figureOutURL(year, dataSrc, dataSrc2) {
-  console.log(
-    "figureOutURL - passed year=",
-    year,
-    ", and data src=",
-    dataSrc,
-    ", and data src2=",
-    dataSrc2
-  );
-  //let statesArray = STATES.split(' ');
+  // console.log(
+  //   "figureOutURL - passed year=",
+  //   year,
+  //   ", and data src=",
+  //   dataSrc,
+  //   ", and data src2=",
+  //   dataSrc2
+  // );
   let finalURL = "";
   let finalParams = {};
 
@@ -115,7 +113,6 @@ function figureOutURL(year, dataSrc, dataSrc2) {
       break;
 
     case DATA_SRC_BLS:
-      console.log("figureOutURL - got to bls datasrc");
       const DATA_SRC_BLS_URL =
         "https://api.bls.gov/publicAPI/v2/timeseries/data/"; //?registrationkey=';
       finalURL = DATA_SRC_BLS_URL;
@@ -138,15 +135,13 @@ function figureOutURL(year, dataSrc, dataSrc2) {
       break;
 
     case DATA_SRC_MISC:
-      console.log("figureOutURL - got to unknown datasrc");
       break;
 
     default:
-      console.log("figureOutURL - got to default datasrc");
       break;
   }
-  console.log("figureOutURL - url =", finalURL);
-  console.log("figureOutURL - params =", finalParams);
+  // console.log("figureOutURL - url =", finalURL);
+  // console.log("figureOutURL - params =", finalParams);
 
   return [finalURL, finalParams];
 }

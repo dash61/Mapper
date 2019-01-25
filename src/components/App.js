@@ -22,7 +22,6 @@ import Spinner from './Spinner/spinner';
 class App extends Component {
   constructor(props) {
     super(props);
-    //console.log("App ctor - props = ", props);
   }
 
   render() {
