@@ -48,17 +48,16 @@ export default class MyDS2Select extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      options: [], // defaults
       src2SelectValue: DATA_SRC2_TOTALPOP,
       finalStr: ""
     };
+    this.options = [];
   }
 
   fillOptions = (props) => {
+    this.options = [];
     let srcArray = [];
-    //this.setState({ options: [] }); // this doesn't work
-    this.state.options = []; // clear old options array or get errors about duplicate keys
-    switch (props.source) {
+    switch (this.props.source) {
       case DATA_SRC_CENSUS:
         srcArray = census_sources;
         break;
@@ -76,22 +75,24 @@ export default class MyDS2Select extends Component {
     }
     for (let i = 0; i < srcArray.length; i++) {
       let option = srcArray[i];
-      this.state.options.push(
+      this.options.push(
         <option key={i} value={option.name}>
           {option.value}
         </option>
-      ); // must include 'key' or will get warning about it
+      );
     }
-    this.forceUpdate(); // this compensates for not using setState on options
   }
+
   componentWillReceiveProps(nextprops) {
     this.fillOptions(nextprops);
   }
+
   renderOptions = () => {
-    return this.state.options.map(item => {
+    return this.options.map(item => {
       return item;
     });
   }
+
   // Use renderOptions to fill in each option tag
   render() {
     return <select onChange={e => this.props.onChange(e.target.value)}>

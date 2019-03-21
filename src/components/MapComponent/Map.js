@@ -255,27 +255,6 @@ class MyMap extends Component {
 
   // This gets called once *per state* when the states2.json file is loaded.
   statesOnEachFeature = (feature, layer) => {
-    //this.markers.push(
-    //    L.circleMarker(
-    //        layer.getBounds().getCenter(),
-    //        {
-    //            radius : 0.0,
-    //            opacity : 0,
-    //            fillOpacity : 0
-    //        }
-    //    )
-    //);
-    //var markersCount = this.markers.length;
-    //this.markers[markersCount - 1].bindTooltip(
-    //    feature.properties.name,
-    //    {
-    //        noHide : true,
-    //        className : 'map-label',
-    //        pane : 'mapPane'
-    //    }
-    //);
-    //this.markers[markersCount - 1].addTo(this.state.map);
-    //this.markers[markersCount - 1].hideLabel();
     let tempObj = {};
     tempObj.name = feature.properties.name;
     tempObj.fips = feature.properties.fips; // 4 chars
@@ -360,19 +339,6 @@ class MyMap extends Component {
     }
   };
 
-  // // taken from http://leafletjs.com/examples/choropleth/.
-  // getColor = (d) =>
-  // {
-  //     return d > 1000 ? '#800026' :
-  //            d > 500  ? '#BD0026' :
-  //            d > 200  ? '#E31A1C' :
-  //            d > 100  ? '#FC4E2A' :
-  //            d > 50   ? '#FD8D3C' :
-  //            d > 20   ? '#FEB24C' :
-  //            d > 10   ? '#FED976' :
-  //                       '#FFEDA0';
-  // }
-
   // arrayToMap = (array, fromKey, toKey) =>
   // {
   // 		var map = {};
@@ -390,8 +356,6 @@ class MyMap extends Component {
   // }
 
   componentDidMount = () => {
-    // code to run just after the component "mounts" / DOM elements are created
-
     // create the Leaflet map object
     if (!this.state.map) this.init(this._mapNode);
 
