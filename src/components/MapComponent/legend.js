@@ -7,7 +7,6 @@ const NUM_LEGEND_SEGMENTS = 10;
 export default class Legend {
   constructor(map) {
     this.map = map;
-    //this.L = L;
     this.legend = null;
     this.fillColor = null;
     this.useLog = false;

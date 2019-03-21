@@ -5,7 +5,6 @@ import { receiveRemoteData, errorRemoteData } from "../actions/actions.js";
 // Later, it will return the data.
 function getData(url, urlParams, dispatch) {
   let blsURLfound = url.search("api.bls.gov"); // -1 rtnd if not found
-  let stringedData = JSON.stringify(urlParams);
 
   let requestData = {};
 

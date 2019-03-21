@@ -20,10 +20,6 @@ import DataSelect from "./DataSelectComponent/DataSelect";
 import Spinner from './Spinner/spinner';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const styles = {
       container: {
@@ -73,6 +69,7 @@ class App extends Component {
         top: '40%',
       },
     };
+
     return (
       <div className="App container">
         <header className="sticky">
@@ -115,7 +112,6 @@ class App extends Component {
   }
 }
 
-// Notice this function is not part of the class above.
 // See docs for this fn and the connect fn below at:
 // https://github.com/reactjs/react-redux/blob/master/docs/api.md#api
 // "This fn takes the state of the entire store and returns an object

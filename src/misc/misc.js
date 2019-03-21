@@ -242,22 +242,22 @@ function isEmpty1(a) {
   return Object.keys(a).length === 0;
 }
 
-function isEmpty2(a) {
-  for (let x in a) {
-    return false;
-  }
-  return true;
-}
-
-function isEmpty3(a) {
-  for (let x in a) {
-    if (a.hasOwnProperty(x)) return false;
-  }
-  return true;
-}
-
-function isEmpty4(a) {
-  return "{}" === JSON.stringify(a);
-}
+// function isEmpty2(a) {
+//   for (let x in a) {
+//     return false;
+//   }
+//   return true;
+// }
+//
+// function isEmpty3(a) {
+//   for (let x in a) {
+//     if (a.hasOwnProperty(x)) return false;
+//   }
+//   return true;
+// }
+//
+// function isEmpty4(a) {
+//   return "{}" === JSON.stringify(a);
+// }
 
 export { customReducer, getNumericRangeOfArray, reformatData, isEmpty1 };

@@ -16,7 +16,7 @@ import {
 } from '../constants';
 
 import figureOutURL from '../components/DataSelectComponent/urlcalc.js'
-import { customReducer, isEmpty1 } from '../misc/misc.js'
+import { customReducer } from '../misc/misc.js'
 
 
 /* Shape of the data:

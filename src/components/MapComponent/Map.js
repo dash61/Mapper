@@ -546,7 +546,7 @@ class MyMap extends Component {
   {
     const reader = new FileReader();
     reader.readAsText(file);
-    const result = new Promise((resolve, reject) => {
+    new Promise((resolve, reject) => {
       reader.onload = function(event) {
       resolve(reader.result)
       }
@@ -764,7 +764,7 @@ class MyMap extends Component {
     return (
       <div id="map-component">
         <Map
-          ref={m => (this._mapNode = m)} // in React, this is a 'callback ref'
+          ref={m => (this._mapNode = m)} // leaflet needs this node
           center={config.params.center}
           zoom={config.params.zoom}
           maxZoom={config.params.maxZoom}

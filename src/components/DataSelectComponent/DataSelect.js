@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import MyDS2Select from "./DataSelectSrc2.js";
-import { DATA_SRC_CENSUS, DATA_SRC2_TOTALPOP } from "../../constants.js";
+import { DATA_SRC_CENSUS } from "../../constants.js";
 
 // the UI component for selecting the data source
 export default class DataSelect extends Component {
@@ -8,19 +8,19 @@ export default class DataSelect extends Component {
     super(props);
     this.state = {
         src1SelectValue: DATA_SRC_CENSUS,    // defaults
-        // src2SelectValue: DATA_SRC2_TOTALPOP
     }
   }
+
   changeSrc = (value) => {
     this.setState({src1SelectValue: value});
     this.props.onDataSrcChange(value);
   };
+
   changeSrc2 = (value) => {
-    // this.setState({src2SelectValue: value});
     this.props.onDataSrc2Change(value);
   };
+
   render() {
-    //const { onYearChange, onDataSrcChange, onDataSrc2Change, onGoPressed, onClearPressed, errorStr } = this.props;
     const styles = {
       hr_style: {
         marginTop: "0px",
@@ -57,6 +57,7 @@ export default class DataSelect extends Component {
         margin: "0px 6px"
       }
     };
+
     return (
       <div id="data-selector-component" className="data-sources">
         <hr style={styles.hr_style} />
