@@ -13,6 +13,10 @@ This is just a *sample* app. I pulled public data on country/state/county bounda
 
 You can click on a country, state, or county to zoom into it. You have to be at a certain zoom level to select a county, so you may need to manually zoom into the large states before counties are clickable.
 
+## Screenshot
+
+![screenshot](https://i.imgur.com/TihOJcy.png)
+
 
 Things still to be done:
 
