@@ -13,7 +13,7 @@
     "case-sensitive-paths-webpack-plugin": "2.1.1",
     "chalk": "4.1.0",
     "create-react-class": "^15.6.2",
-    "css-loader": "0.28.4",
+    "css-loader": "0.28.11",
     "dotenv": "4.0.0",
     "eslint": "4.19.1",
     "eslint-config-react-app": "^2.1.0",
