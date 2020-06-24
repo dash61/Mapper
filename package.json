@@ -38,7 +38,7 @@
     "postcss-loader": "2.0.6",
     "promise": "8.1.0",
     "react": "^16.13.1",
-    "react-dev-utils": "^4.2.2",
+    "react-dev-utils": "^10.2.1",
     "react-dom": "^16.13.1",
     "react-leaflet": "^2.1.4",
     "react-redux": "^7.2.0",
