@@ -34,7 +34,7 @@
     "merge": "^1.2.1",
     "moment": "^2.29.1",
     "object-assign": "4.1.1",
-    "postcss-flexbugs-fixes": "4.2.1",
+    "postcss-flexbugs-fixes": "5.0.0",
     "postcss-loader": "3.0.0",
     "promise": "8.1.0",
     "react": "^17.0.1",
