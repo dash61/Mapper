@@ -22,7 +22,7 @@
     "eslint-plugin-import": "2.25.3",
     "eslint-plugin-jsx-a11y": "6.5.1",
     "eslint-plugin-react": "7.27.1",
-    "esri-leaflet": "^3.0.3",
+    "esri-leaflet": "^3.0.4",
     "extract-text-webpack-plugin": "3.0.2",
     "file-loader": "2.0.0",
     "fs-extra": "10.0.0",
