@@ -20,7 +20,7 @@
     "eslint-loader": "2.2.1",
     "eslint-plugin-flowtype": "8.0.3",
     "eslint-plugin-import": "2.26.0",
-    "eslint-plugin-jsx-a11y": "6.5.1",
+    "eslint-plugin-jsx-a11y": "6.6.0",
     "eslint-plugin-react": "7.30.1",
     "esri-leaflet": "^3.0.8",
     "extract-text-webpack-plugin": "3.0.2",
