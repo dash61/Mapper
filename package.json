@@ -32,7 +32,7 @@
     "leaflet": "^1.8.0",
     "leaflet-dvf": "^0.3.1",
     "merge": "^2.1.1",
-    "moment": "^2.29.3",
+    "moment": "^2.29.4",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "5.0.1",
     "postcss-loader": "3.0.0",
