@@ -11,7 +11,7 @@
     "babel-preset-react-app": "^10.0.1",
     "babel-runtime": "6.26.0",
     "case-sensitive-paths-webpack-plugin": "2.4.0",
-    "chalk": "5.0.1",
+    "chalk": "5.2.0",
     "create-react-class": "^15.7.0",
     "css-loader": "0.28.11",
     "dotenv": "16.0.3",
